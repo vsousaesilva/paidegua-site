@@ -59,6 +59,7 @@
           <li><a href="#ferramentas-secretaria">5.4 Secretaria</a></li>
           <li><a href="#ferramentas-gestao">5.5 Gestão</a></li>
           <li><a href="#fale-com-julia">5.6 Fale com a Júlia</a></li>
+          <li><a href="#analise-preditiva">— Análise preditiva da minuta</a></li>
           <li><a href="#consultor-fluxos">5.7 Consultor de Fluxos</a></li>
           <li><a href="#icones-linha">5.8 Ícones por linha</a></li>
           <li><a href="#chat-livre">5.9 Chat livre</a></li>
@@ -72,7 +73,7 @@
 
   <main class="manual-content">
     <h1>Manual de Instalação e Uso</h1>
-    <p class="manual-meta">Versão <strong>1.10.2</strong> · Atualizado em 19/07/2026 · Mantido pelo <strong>Inovajus / JFCE</strong></p>
+    <p class="manual-meta">Versão <strong>1.12.0</strong> · Atualizado em 23/07/2026 · Mantido pelo <strong>Inovajus / JFCE</strong></p>
     <p class="manual-lede">Plataforma de apoio à atividade e à gestão judicial no PJe — triagem inteligente, validação de cadastro, minutas com IA, pauta de audiência e perícia, controle criminal (Sigcrim), Central de Comunicação, Painel Gerencial, Prazos na Fita, Ordens PREVJUD, Painel de Perícias, pesquisa de jurisprudência com a Júlia, Consultor de Fluxos e chat livre sobre os autos. Operação em conformidade com a LGPD e a Resolução CNJ 615/2025.</p>
 
     <h2 id="parte-1-instalacao">PARTE 1 — Instalação</h2>
@@ -136,7 +137,7 @@
       <li><strong>Perfil de trabalho.</strong> Defina o perfil padrão (<strong>Gabinete</strong>, <strong>Secretaria</strong> ou <strong>Gestão</strong>) que será carregado automaticamente ao abrir o PJe.</li>
       <li><strong>Provedor e modelo.</strong> Selecione o provedor (<strong>Google Gemini</strong>, <strong>Anthropic Claude</strong> ou <strong>OpenAI</strong>) e o modelo desejado. Recomendação atual: <strong>Gemini 3 Flash</strong>.</li>
       <li><strong>Chave de API.</strong> Cole a chave no campo indicado, clique em <strong>Salvar</strong> e em <strong>Testar</strong> para verificar a conexão. A chave fica armazenada apenas no seu navegador.</li>
-      <li><strong>OCR de digitalizados.</strong> Marque <strong>Rodar OCR automaticamente</strong> se quiser que documentos digitalizados (PDFs de imagem) sejam preparados automaticamente após a extração. As páginas digitalizadas são renderizadas como imagem e <strong>enviadas à IA do provedor configurado</strong>, que as lê diretamente — não há transcrição local. Ajuste o <strong>máximo de páginas por documento</strong> conforme necessário.</li>
+      <li><strong>OCR de digitalizados.</strong> Marque <strong>Rodar OCR automaticamente</strong> se quiser que documentos digitalizados (PDFs de imagem) sejam lidos automaticamente após a extração. O reconhecimento de texto (OCR) é feito <strong>na sua máquina</strong>: o texto extraído entra na leitura, vale no arquivo <code>.txt</code> e <strong>pode ser anonimizado antes de qualquer envio à IA</strong>. Apenas as páginas que o OCR não conseguir ler (ex.: manuscrito, carimbo) são enviadas como imagem à IA do provedor configurado. Ajuste o <strong>máximo de páginas por documento</strong> conforme necessário.</li>
       <li><strong>Sigcrim.</strong> Configurações básicas do módulo criminal (matrícula do servidor, vara responsável), usadas pelo Painel Criminal.</li>
       <li><strong>Modelos de minuta.</strong> Botão <strong>Gerenciar modelos</strong> abre a página de opções, onde se aponta a pasta com os modelos. Veja a PARTE 6.</li>
       <li><strong>Backup.</strong> Botões <strong>Exportar configurações</strong> e <strong>Importar configurações</strong> (formato <code>paidegua-config-*.txt</code>, versão 2).</li>
@@ -201,7 +202,7 @@
     <table>
       <thead><tr><th>Perfil</th><th>Foco</th><th>Disponível em</th><th>Ferramentas principais</th></tr></thead>
       <tbody>
-        <tr><td><strong>Gabinete</strong> (padrão)</td><td>Análise dos autos e produção de minutas</td><td>Todos os graus</td><td>Resumir, Resumir em áudio, Anonimizar, Minutar (triagem automática), Minutas com modelo, Audiência pAIdegua, Fale com a Júlia</td></tr>
+        <tr><td><strong>Gabinete</strong> (padrão)</td><td>Análise dos autos e produção de minutas</td><td>Todos os graus</td><td>Resumir, Resumir em áudio, Anonimizar, Minutar (triagem automática), Minutas com modelo, Audiência pAIdegua, Fale com a Júlia, Análise preditiva da minuta</td></tr>
         <tr><td><strong>Secretaria</strong></td><td>Triagem, pauta e organização</td><td>1º grau apenas</td><td>Analisar tarefas, Validação de cadastro, Analisar o processo, Inserir etiquetas mágicas, Audiência pAIdegua, Perícias pAIdegua, Central de Comunicação, Sigcrim</td></tr>
         <tr><td><strong>Gestão</strong></td><td>Visão da diretoria de secretaria</td><td>Todos os graus</td><td>Painel Gerencial, Prazos na Fita, Ordens PREVJUD, Painel de Perícias</td></tr>
       </tbody>
@@ -242,7 +243,7 @@
     <p>Os dados viram marcadores genéricos (ex.: <code>PARTE_AUTORA</code>, <code>CPF_OCULTO</code>).</p>
 
     <h4 id="ocr">Rodar OCR</h4>
-    <p>Aparece automaticamente quando há documentos digitalizados (PDFs de imagem). As páginas são renderizadas como imagem e <strong>enviadas à IA do provedor configurado</strong>, que as lê diretamente — não há transcrição local. Documentos com muitas páginas podem demorar mais para preparar; ajuste o limite na aba <strong>Geral</strong>.</p>
+    <p>Aparece automaticamente quando há documentos digitalizados (PDFs de imagem). O reconhecimento de texto (OCR) é feito <strong>na sua máquina</strong> — o texto extraído entra na leitura e <strong>pode ser anonimizado antes de ir à IA</strong>. Apenas o que o OCR não conseguir ler (ex.: manuscrito, carimbo pesado) é enviado como imagem à IA do provedor configurado. Documentos com muitas páginas podem demorar mais; ajuste o limite na aba <strong>Geral</strong>.</p>
 
     <h4 id="minutar">Minutar (com triagem automática)</h4>
     <p>Funciona como assistente de triagem:</p>
@@ -408,6 +409,13 @@
     </ol>
     <p>No <strong>2º grau</strong>, a consulta usa apenas o acervo público do TRF5. No <strong>1º grau</strong> e na Turma Recursal, além do acervo público a extensão consulta também a base interna da Júlia — para isso é preciso <strong>já estar logado na Júlia</strong> no mesmo navegador. Se não estiver, a pesquisa continua funcionando, só que restrita ao acervo público.</p>
     <blockquote>A extensão <strong>não guarda a sua senha da Júlia</strong> — ela apenas aproveita a sessão que você já abriu. Documentos sigilosos são descartados automaticamente e nunca chegam ao painel nem ao provedor de IA.</blockquote>
+
+    <h4 id="analise-preditiva">Análise preditiva da minuta</h4>
+    <p>Ainda na seção <strong>Pesquisa</strong> (perfil <strong>Gabinete</strong>), o botão <strong>Análise preditiva da minuta</strong> confronta a <strong>minuta que você está editando</strong> (ou visualizando) com a jurisprudência da <strong>sua unidade</strong> e da <strong>instância revisora</strong>, via Júlia. O resultado é um relatório na barra lateral — pontos de aderência, divergências e sugestões — e você pode pedir para <strong>reescrever a minuta</strong> a partir das sugestões que escolher, preservando a formatação.</p>
+    <ul>
+      <li><strong>Sua unidade já vem selecionada.</strong> A unidade confrontada é, por padrão, a <strong>sua lotação</strong> — não é preciso escolhê-la a cada uso; ajuste apenas se quiser comparar com outra.</li>
+      <li><strong>Anonimizar antes de analisar.</strong> Antes de enviar a minuta, há a opção <strong>Analisar com o texto anonimizado</strong>: os dados pessoais das partes são mascarados localmente e só então a minuta segue para a análise. Use sempre que a peça contiver nomes, CPF ou outros dados sensíveis.</li>
+    </ul>
 
     <h3 id="consultor-fluxos">5.7 Seção Conhecimento — Consultor de Fluxos</h3>
     <p>Disponível em qualquer perfil. Botão <strong>Consultor de fluxos</strong> na seção <strong>Conhecimento</strong> do painel lateral, com o subtítulo <em>Como o processo caminha no PJe</em>. Abre uma nova aba com chat dedicado sobre os 210 fluxos do PJe (JEF, EF, Comum, Shared).</p>
