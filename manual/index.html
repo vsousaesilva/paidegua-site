@@ -73,7 +73,7 @@
 
   <main class="manual-content">
     <h1>Manual de Instalação e Uso</h1>
-    <p class="manual-meta">Versão <strong>1.12.0</strong> · Atualizado em 23/07/2026 · Mantido pelo <strong>Inovajus / JFCE</strong></p>
+    <p class="manual-meta">Versão <strong>1.13.0</strong> · Atualizado em 27/07/2026 · Mantido pelo <strong>Inovajus / JFCE</strong></p>
     <p class="manual-lede">Plataforma de apoio à atividade e à gestão judicial no PJe — triagem inteligente, validação de cadastro, minutas com IA, pauta de audiência e perícia, controle criminal (Sigcrim), Central de Comunicação, Painel Gerencial, Prazos na Fita, Ordens PREVJUD, Painel de Perícias, pesquisa de jurisprudência com a Júlia, Consultor de Fluxos e chat livre sobre os autos. Operação em conformidade com a LGPD e a Resolução CNJ 615/2025.</p>
 
     <h2 id="parte-1-instalacao">PARTE 1 — Instalação</h2>
@@ -314,6 +314,17 @@
       <li>Abre o relatório <strong>Validação de cadastro</strong>, com os processos separados entre regulares e com pendências. Cada pendência traz o título do problema e a orientação de correção.</li>
       <li>Quando for o caso, é possível gerar a partir dali a <strong>minuta</strong> correspondente, já indicando o cadastro correto (por exemplo, o CNPJ certo do INSS).</li>
     </ol>
+
+    <p><strong>Corrigir o cadastro sem sair do relatório.</strong> Nos processos com pendências que a extensão sabe resolver, aparece o botão <strong>Sanear cadastro</strong> na linha do processo. Ao clicar, a extensão abre a tela de <em>Retificação da Autuação</em> do PJe em segundo plano e faz a correção sozinha:</p>
+    <ul>
+      <li>Inclui o que estava faltando: o <strong>MPF</strong> (quando o autor é menor), a <strong>CEAB</strong> como órgão de cumprimento e a <strong>procuradoria</strong> do órgão público.</li>
+      <li>Substitui o órgão réu cadastrado sem procuradoria (<strong>INSS</strong>, <strong>União</strong> ou <strong>Caixa</strong>) pelo cadastro correto — primeiro inclui o certo e só depois remove o errado, para o polo nunca ficar vazio.</li>
+      <li>Move a <strong>CEAB</strong> do polo passivo para <em>Outros interessados</em>, quando for o caso.</li>
+    </ul>
+    <p>Ao terminar, o botão mostra o resultado: <strong>saneado</strong>, <strong>parcial</strong> (quando ainda restou algo que precisa de conferência manual) ou <strong>erro</strong>. As pendências que dependem de análise (como a compatibilidade entre assunto e pedido) não são alteradas.</p>
+    <p><strong>Em lote.</strong> Marque vários processos — ou todos — e clique em <strong>Sanear selecionados</strong>. A extensão trata até três por vez e mostra o andamento. Se precisar interromper, use <strong>Parar lote</strong>: os que já começaram terminam, e nenhum novo é iniciado.</p>
+    <p><strong>Atualizar relatório.</strong> Depois de sanear, clique em <strong>Atualizar relatório</strong> (canto superior) para reler os processos na própria tela, com barra de progresso — sem recarregar a página. Os processos corrigidos saem da lista de pendências e passam para os regulares. É a forma de confirmar que as correções foram aplicadas.</p>
+
     <blockquote>Processos que a extensão não conseguir ler aparecem marcados como <em>erro de leitura</em> em bloco próprio — não são contados como regulares nem como irregulares. Vale reprocessá-los depois.</blockquote>
     <p>Uma verificação fica de fora desse lote: saber se o <strong>assunto cadastrado combina com o pedido da inicial</strong>. Essa exige leitura da petição e é feita processo a processo, pelo <strong>Analisar o processo</strong>.</p>
 
