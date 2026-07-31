@@ -73,7 +73,7 @@
 
   <main class="manual-content">
     <h1>Manual de Instalação e Uso</h1>
-    <p class="manual-meta">Versão <strong>1.13.0</strong> · Atualizado em 27/07/2026 · Mantido pelo <strong>Inovajus / JFCE</strong></p>
+    <p class="manual-meta">Versão <strong>1.14.0</strong> · Atualizado em 30/07/2026 · Mantido pelo <strong>Inovajus / JFCE</strong></p>
     <p class="manual-lede">Plataforma de apoio à atividade e à gestão judicial no PJe — triagem inteligente, validação de cadastro, minutas com IA, pauta de audiência e perícia, controle criminal (Sigcrim), Central de Comunicação, Painel Gerencial, Prazos na Fita, Ordens PREVJUD, Painel de Perícias, pesquisa de jurisprudência com a Júlia, Consultor de Fluxos e chat livre sobre os autos. Operação em conformidade com a LGPD e a Resolução CNJ 615/2025.</p>
 
     <h2 id="parte-1-instalacao">PARTE 1 — Instalação</h2>
@@ -134,7 +134,9 @@
     <h3 id="popup-geral">3.1 Aba Geral</h3>
     <ul>
       <li><strong>Aviso LGPD.</strong> Leia o aviso de privacidade e marque a caixa de ciência. A extensão envia o conteúdo dos documentos para a API do provedor de IA escolhido — confirme que está ciente.</li>
+      <li><strong>Privacidade — envio à IA.</strong> Nos fluxos interativos por processo (Resumir, Analisar, Minutar, Sugerir etiquetas, Chat e Análise preditiva), a extensão pede a sua <strong>confirmação antes de enviar o conteúdo dos autos à IA</strong>, com destaque para a opção de anonimizar. Aqui você pode desligar esse aviso e ativar/desativar o <strong>registro local dos consentimentos</strong> (auditoria, sem dados pessoais). Os registros ficam visíveis na página de <strong>Diagnóstico</strong>.</li>
       <li><strong>Perfil de trabalho.</strong> Defina o perfil padrão (<strong>Gabinete</strong>, <strong>Secretaria</strong> ou <strong>Gestão</strong>) que será carregado automaticamente ao abrir o PJe.</li>
+      <li><strong>Padrões da Júlia.</strong> Defina o escopo que já vem marcado ao abrir o <strong>Fale com a Júlia</strong> e a <strong>Análise preditiva</strong>: seccional, instâncias, <strong>uma ou mais unidades</strong> (órgãos julgadores), comparação com a instância revisora e a opção <strong>Sempre incluir a minha unidade</strong>. As unidades são carregadas da Júlia sob demanda (é preciso estar logado na Júlia).</li>
       <li><strong>Provedor e modelo.</strong> Selecione o provedor (<strong>Google Gemini</strong>, <strong>Anthropic Claude</strong> ou <strong>OpenAI</strong>) e o modelo desejado. Recomendação atual: <strong>Gemini 3 Flash</strong>.</li>
       <li><strong>Chave de API.</strong> Cole a chave no campo indicado, clique em <strong>Salvar</strong> e em <strong>Testar</strong> para verificar a conexão. A chave fica armazenada apenas no seu navegador.</li>
       <li><strong>OCR de digitalizados.</strong> Marque <strong>Rodar OCR automaticamente</strong> se quiser que documentos digitalizados (PDFs de imagem) sejam lidos automaticamente após a extração. O reconhecimento de texto (OCR) é feito <strong>na sua máquina</strong>: o texto extraído entra na leitura, vale no arquivo <code>.txt</code> e <strong>pode ser anonimizado antes de qualquer envio à IA</strong>. Apenas as páginas que o OCR não conseguir ler (ex.: manuscrito, carimbo) são enviadas como imagem à IA do provedor configurado. Ajuste o <strong>máximo de páginas por documento</strong> conforme necessário.</li>
@@ -415,16 +417,17 @@
     <p>Disponível no perfil <strong>Gabinete</strong>. A Júlia é a base de jurisprudência do TRF5. O botão <strong>Fale com a Júlia</strong> consulta essa base e mostra, lado a lado, <strong>o que a sua unidade vem decidindo</strong> e <strong>o que a instância revisora vem decidindo</strong> sobre o mesmo tema — útil para conferir se o entendimento local está alinhado antes de minutar.</p>
     <ol>
       <li>Clique em <strong>Fale com a Júlia</strong>, na seção <strong>Pesquisa</strong> do painel lateral.</li>
-      <li>Confirme ou ajuste as instâncias e unidades sugeridas e informe os termos da pesquisa.</li>
+      <li>Confirme ou ajuste a <strong>seccional</strong>, as instâncias e as unidades sugeridas e informe os termos da pesquisa. A seccional é <strong>identificada automaticamente pela sua lotação no PJe</strong>; quando não for possível identificar, a extensão pede que você a escolha (sem assumir um padrão fixo).</li>
       <li>O resultado aparece no próprio fio da conversa. Ao encerrar, o botão <strong>Iniciar outra consulta</strong> reaproveita as escolhas anteriores.</li>
     </ol>
     <p>No <strong>2º grau</strong>, a consulta usa apenas o acervo público do TRF5. No <strong>1º grau</strong> e na Turma Recursal, além do acervo público a extensão consulta também a base interna da Júlia — para isso é preciso <strong>já estar logado na Júlia</strong> no mesmo navegador. Se não estiver, a pesquisa continua funcionando, só que restrita ao acervo público.</p>
     <blockquote>A extensão <strong>não guarda a sua senha da Júlia</strong> — ela apenas aproveita a sessão que você já abriu. Documentos sigilosos são descartados automaticamente e nunca chegam ao painel nem ao provedor de IA.</blockquote>
+    <p><strong>Salvar o seu padrão.</strong> Marcadas a seccional, as instâncias e as unidades que você costuma consultar, use <strong>Salvar como meu padrão</strong> — nas próximas vezes o Fale com a Júlia e a Análise preditiva já abrem com esse escopo. O mesmo padrão pode ser ajustado na aba <strong>Geral</strong> do popup, em <em>Padrões da Júlia</em>, inclusive com <strong>várias unidades</strong> de uma vez e a opção de sempre incluir a sua lotação.</p>
 
     <h4 id="analise-preditiva">Análise preditiva da minuta</h4>
     <p>Ainda na seção <strong>Pesquisa</strong> (perfil <strong>Gabinete</strong>), o botão <strong>Análise preditiva da minuta</strong> confronta a <strong>minuta que você está editando</strong> (ou visualizando) com a jurisprudência da <strong>sua unidade</strong> e da <strong>instância revisora</strong>, via Júlia. O resultado é um relatório na barra lateral — pontos de aderência, divergências e sugestões — e você pode pedir para <strong>reescrever a minuta</strong> a partir das sugestões que escolher, preservando a formatação.</p>
     <ul>
-      <li><strong>Sua unidade já vem selecionada.</strong> A unidade confrontada é, por padrão, a <strong>sua lotação</strong> — não é preciso escolhê-la a cada uso; ajuste apenas se quiser comparar com outra.</li>
+      <li><strong>Sua unidade já vem selecionada.</strong> A unidade confrontada é, por padrão, a <strong>sua lotação</strong> — ou o <strong>padrão que você salvou</strong>, que pode incluir <strong>várias unidades</strong>. Não é preciso escolhê-la a cada uso; ajuste apenas se quiser comparar com outra.</li>
       <li><strong>Anonimizar antes de analisar.</strong> Antes de enviar a minuta, há a opção <strong>Analisar com o texto anonimizado</strong>: os dados pessoais das partes são mascarados localmente e só então a minuta segue para a análise. Use sempre que a peça contiver nomes, CPF ou outros dados sensíveis.</li>
     </ul>
 
