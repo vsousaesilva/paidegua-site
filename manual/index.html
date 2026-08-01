@@ -73,7 +73,7 @@
 
   <main class="manual-content">
     <h1>Manual de Instalação e Uso</h1>
-    <p class="manual-meta">Versão <strong>1.14.0</strong> · Atualizado em 30/07/2026 · Mantido pelo <strong>Inovajus / JFCE</strong></p>
+    <p class="manual-meta">Versão <strong>1.15.0</strong> · Atualizado em 01/08/2026 · Mantido pelo <strong>Inovajus / JFCE</strong></p>
     <p class="manual-lede">Plataforma de apoio à atividade e à gestão judicial no PJe — triagem inteligente, validação de cadastro, minutas com IA, pauta de audiência e perícia, controle criminal (Sigcrim), Central de Comunicação, Painel Gerencial, Prazos na Fita, Ordens PREVJUD, Painel de Perícias, pesquisa de jurisprudência com a Júlia, Consultor de Fluxos e chat livre sobre os autos. Operação em conformidade com a LGPD e a Resolução CNJ 615/2025.</p>
 
     <h2 id="parte-1-instalacao">PARTE 1 — Instalação</h2>
@@ -205,7 +205,7 @@
       <thead><tr><th>Perfil</th><th>Foco</th><th>Disponível em</th><th>Ferramentas principais</th></tr></thead>
       <tbody>
         <tr><td><strong>Gabinete</strong> (padrão)</td><td>Análise dos autos e produção de minutas</td><td>Todos os graus</td><td>Resumir, Resumir em áudio, Anonimizar, Minutar (triagem automática), Minutas com modelo, Audiência pAIdegua, Fale com a Júlia, Análise preditiva da minuta</td></tr>
-        <tr><td><strong>Secretaria</strong></td><td>Triagem, pauta e organização</td><td>1º grau apenas</td><td>Analisar tarefas, Validação de cadastro, Analisar o processo, Inserir etiquetas mágicas, Audiência pAIdegua, Perícias pAIdegua, Central de Comunicação, Sigcrim</td></tr>
+        <tr><td><strong>Secretaria</strong></td><td>Triagem, pauta e organização</td><td>1º grau apenas</td><td>Analisar tarefas, Validação de cadastro, Painel de prevenção, Analisar o processo, Inserir etiquetas mágicas, Audiência pAIdegua, Perícias pAIdegua, Central de Comunicação, Sigcrim</td></tr>
         <tr><td><strong>Gestão</strong></td><td>Visão da diretoria de secretaria</td><td>Todos os graus</td><td>Painel Gerencial, Prazos na Fita, Ordens PREVJUD, Painel de Perícias</td></tr>
       </tbody>
     </table>
@@ -310,6 +310,7 @@
       <li><strong>Representantes</strong> — vinculados a parte que não é a autora.</li>
       <li><strong>Valor da causa</strong> — ausente ou zerado.</li>
     </ul>
+    <p>A <strong>Defensoria Pública da União</strong> é reconhecida como representação da parte (autora ou ré): quando patrocina o autor, não é apontada falta de advogado; quando defende o réu, não é tratada como representante indevido.</p>
     <ol>
       <li>No Painel do usuário do PJe, abra a <strong>Triagem Inteligente</strong> e clique em <strong>Validação de cadastro</strong>.</li>
       <li>A extensão percorre as tarefas de triagem e confere cada processo. Acompanhe o progresso.</li>
@@ -325,10 +326,23 @@
     </ul>
     <p>Ao terminar, o botão mostra o resultado: <strong>saneado</strong>, <strong>parcial</strong> (quando ainda restou algo que precisa de conferência manual) ou <strong>erro</strong>. As pendências que dependem de análise (como a compatibilidade entre assunto e pedido) não são alteradas.</p>
     <p><strong>Em lote.</strong> Marque vários processos — ou todos — e clique em <strong>Sanear selecionados</strong>. A extensão trata até três por vez e mostra o andamento. Se precisar interromper, use <strong>Parar lote</strong>: os que já começaram terminam, e nenhum novo é iniciado.</p>
+    <p><strong>Selecionar por apontamento.</strong> Para corrigir de uma vez só um tipo de problema, escolha o apontamento na lista e clique em <strong>Selecionar por apontamento</strong>: a extensão marca todos os processos que têm aquele apontamento. Depois é só <strong>Sanear selecionados</strong>.</p>
     <p><strong>Atualizar relatório.</strong> Depois de sanear, clique em <strong>Atualizar relatório</strong> (canto superior) para reler os processos na própria tela, com barra de progresso — sem recarregar a página. Os processos corrigidos saem da lista de pendências e passam para os regulares. É a forma de confirmar que as correções foram aplicadas.</p>
 
     <blockquote>Processos que a extensão não conseguir ler aparecem marcados como <em>erro de leitura</em> em bloco próprio — não são contados como regulares nem como irregulares. Vale reprocessá-los depois.</blockquote>
     <p>Uma verificação fica de fora desse lote: saber se o <strong>assunto cadastrado combina com o pedido da inicial</strong>. Essa exige leitura da petição e é feita processo a processo, pelo <strong>Analisar o processo</strong>.</p>
+
+    <h4 id="prevencao">Painel de prevenção</h4>
+    <p>Botão no grupo Painel da Triagem Inteligente. Ajuda a identificar <strong>possível prevenção</strong>: outros processos, além dos que estão na sua triagem, que envolvem a <strong>mesma pessoa</strong> (mesmo CPF ou CNPJ) no polo ativo. É um apoio à conferência de conexão/prevenção — não uma decisão.</p>
+    <p>Como funciona: a extensão lê as partes do polo ativo dos processos da triagem (excluindo grandes litigantes como INSS, União e Caixa) e consulta a base da <strong>Júlia</strong> por cada CPF/CNPJ, em todas as seções e instâncias, para localizar outros processos daquela parte. Precisa de sessão ativa na Júlia.</p>
+    <ol>
+      <li>No Painel do usuário do PJe, abra a <strong>Triagem Inteligente</strong> e clique em <strong>Painel de prevenção</strong>.</li>
+      <li>Se a Júlia estiver desconectada, use o botão <strong>Conectar à Júlia</strong> que aparece no aviso — faça o login na aba que abrir e a verificação continua sozinha.</li>
+      <li>Ao terminar, abre o relatório: para cada processo da triagem, a lista dos <strong>processos preventos</strong> encontrados, com a parte em comum, o órgão julgador, a classe e a data de distribuição.</li>
+      <li>Os números de processo são <strong>links</strong>: o da triagem abre os autos direto; o prevento abre o processo quando está na mesma instalação do PJe (senão, o número é copiado para você pesquisar).</li>
+      <li>Você pode exportar em <strong>Excel</strong> e aplicar a etiqueta <strong>“Possível prevenção”</strong> em lote nos processos da triagem que tiveram relação.</li>
+    </ol>
+    <blockquote>A base da Júlia é atualizada em lote e fica alguns dias defasada — um processo muito recente pode ainda não aparecer. Cada verificação fica registrada em um histórico local de auditoria, sem guardar o CPF/CNPJ em texto.</blockquote>
 
     <h4 id="pericias">Perícias pAIdegua</h4>
     <p>Disponível apenas em 1º grau. Acelera a montagem da pauta de perícia agrupando os processos por perito cadastrado.</p>
