@@ -73,7 +73,7 @@
 
   <main class="manual-content">
     <h1>Manual de Instalação e Uso</h1>
-    <p class="manual-meta">Versão <strong>1.15.2</strong> · Atualizado em 03/08/2026 · Mantido pelo <strong>Inovajus / JFCE</strong></p>
+    <p class="manual-meta">Versão <strong>1.16.0</strong> · Atualizado em 09/08/2026 · Mantido pelo <strong>Inovajus / JFCE</strong></p>
     <p class="manual-lede">Plataforma de apoio à atividade e à gestão judicial no PJe — triagem inteligente, validação de cadastro, minutas com IA, pauta de audiência e perícia, controle criminal (Sigcrim), Central de Comunicação, Painel Gerencial, Prazos na Fita, Ordens PREVJUD, Painel de Perícias, pesquisa de jurisprudência com a Júlia, Consultor de Fluxos e chat livre sobre os autos. Operação em conformidade com a LGPD e a Resolução CNJ 615/2025.</p>
 
     <h2 id="parte-1-instalacao">PARTE 1 — Instalação</h2>
@@ -156,13 +156,10 @@
     <p>O bloco <strong>Deseja incluir outros critérios customizados?</strong> permite ligar o toggle <strong>Sim</strong> e adicionar critérios próprios da unidade não previstos na NT 1/2025. Os critérios escolhidos são injetados nos prompts da Triagem Inteligente. As alterações são salvas automaticamente.</p>
 
     <h3 id="popup-etiquetas">3.3 Aba Etiquetas Inteligentes</h3>
-    <p>Configura o catálogo de etiquetas do PJe usado pela ação <strong>Inserir etiquetas mágicas</strong> da Triagem Inteligente.</p>
+    <p>Configura, por <strong>competência</strong>, os <strong>grupos de etiquetas</strong> que a IA pode escolher — usados tanto pela <strong>Triagem em lote</strong> quanto pelo <strong>Inserir etiquetas mágicas</strong> de um processo. Em cada grupo, a IA escolhe <strong>no máximo uma</strong> etiqueta, entre as opções que você definir.</p>
     <ol>
-      <li>Clique em <strong>Buscar catálogo do PJe</strong> — o pAIdegua traz a lista completa de etiquetas da sua unidade e guarda no navegador.</li>
-      <li>No painel <strong>Catálogo completo</strong>, use o filtro por nome, marque <strong>Apenas favoritas</strong> ou utilize os botões <strong>Marcar visíveis</strong>, <strong>Desmarcar visíveis</strong> e <strong>Marcar todas favoritas</strong>.</li>
-      <li>As etiquetas marcadas formam o painel superior <strong>Sugestionáveis (selecionadas)</strong> — são as únicas que a Triagem Inteligente considera.</li>
-      <li>O campo <strong>Orientações para a IA extrair marcadores do processo</strong> é texto livre, enviado junto com as instruções da IA; use para guiar o foco (matéria, benefício, fase processual).</li>
-      <li><strong>Salvar seleção</strong> confirma os ajustes. <strong>Reindexar agora</strong> atualiza a comparação com o processo. <strong>Remover catálogo</strong> apaga a lista guardada.</li>
+      <li>Em <strong>Grupos de etiquetas — Triagem em lote</strong>, escolha a competência (por ora, <strong>JEF</strong>) e monte os grupos. Cada grupo recebe suas opções: use o campo de <strong>busca</strong> para localizar a etiqueta no catálogo do PJe (o catálogo tem milhares — a busca filtra por nome) e clique em <strong>+ do catálogo</strong>, ou digite um nome novo e clique em <strong>+ nova</strong> (as novas são criadas no PJe ao aplicar). Clique em <strong>Salvar grupos</strong>.</li>
+      <li>Para alimentar o seletor de etiquetas dos grupos, clique em <strong>Buscar catálogo do PJe</strong> — o pAIdegua traz a lista completa de etiquetas da sua unidade e guarda no navegador. <strong>Reindexar agora</strong> refaz a busca; <strong>Remover catálogo</strong> apaga a lista guardada (os grupos configurados não são apagados).</li>
     </ol>
 
     <h3 id="popup-pericias">3.4 Aba Perícias</h3>
@@ -205,7 +202,7 @@
       <thead><tr><th>Perfil</th><th>Foco</th><th>Disponível em</th><th>Ferramentas principais</th></tr></thead>
       <tbody>
         <tr><td><strong>Gabinete</strong> (padrão)</td><td>Análise dos autos e produção de minutas</td><td>Todos os graus</td><td>Resumir, Resumir em áudio, Anonimizar, Minutar (triagem automática), Minutas com modelo, Audiência pAIdegua, Fale com a Júlia, Análise preditiva da minuta</td></tr>
-        <tr><td><strong>Secretaria</strong></td><td>Triagem, pauta e organização</td><td>1º grau apenas</td><td>Analisar tarefas, Validação de cadastro, Painel de prevenção, Analisar o processo, Inserir etiquetas mágicas, Audiência pAIdegua, Perícias pAIdegua, Central de Comunicação, Sigcrim</td></tr>
+        <tr><td><strong>Secretaria</strong></td><td>Triagem, pauta e organização</td><td>1º grau apenas</td><td>Analisar tarefas, Triagem em lote, Validação de cadastro, Painel de prevenção, Analisar o processo, Inserir etiquetas mágicas, Audiência pAIdegua, Perícias pAIdegua, Central de Comunicação, Sigcrim</td></tr>
         <tr><td><strong>Gestão</strong></td><td>Visão da diretoria de secretaria</td><td>Todos os graus</td><td>Painel Gerencial, Prazos na Fita, Ordens PREVJUD, Painel de Perícias</td></tr>
       </tbody>
     </table>
@@ -288,14 +285,31 @@
     <p><strong>Grupo Painel</strong> (aparece na tela do Painel do usuário / lista de tarefas):</p>
     <ul>
       <li><strong>Analisar tarefas</strong> — lê a fila de tarefas exibida, classifica cada uma pelo tipo de providência necessária e abre o <strong>Painel de Triagem Inteligente pAIdegua</strong> com um quadro resumo para orientar a priorização do dia.</li>
+      <li><strong>Triagem em lote</strong> — ver a seção própria abaixo.</li>
     </ul>
     <p><strong>Grupo Processo</strong> (aparece quando há autos abertos):</p>
     <ul>
       <li><strong>Analisar o processo</strong> — executa uma análise guiada pelos critérios configurados na aba <strong>Triagem Inteligente</strong> do popup. Por padrão, adota os critérios da NT 1/2025 do CLI-JFCE; cada critério pode ser personalizado ou substituído por redação própria, e critérios customizados podem ser incluídos.</li>
-      <li><strong>Inserir etiquetas mágicas</strong> — usa o catálogo selecionado na aba <strong>Etiquetas Inteligentes</strong>. A IA lê os autos, extrai os principais assuntos e temas, compara com as etiquetas sugestionáveis e abre uma bolha mostrando: os marcadores encontrados, a lista das etiquetas mais parecidas com caixa de seleção e barra de similaridade, e o botão <strong>Copiar selecionadas</strong>.</li>
+      <li><strong>Inserir etiquetas mágicas</strong> — a IA lê os autos, identifica a <strong>competência</strong> do processo (pela classe) e classifica-o nos <strong>grupos de etiquetas</strong> que você configurou na aba <strong>Etiquetas Inteligentes</strong>, escolhendo <strong>uma etiqueta real por grupo</strong>. Abre uma bolha com a etiqueta sugerida em cada grupo (marcada como <em>nova</em> quando ainda não existe no PJe); revise, desmarque o que não quiser e clique em <strong>Inserir no processo</strong> — as selecionadas são vinculadas direto (as novas, criadas na hora).</li>
     </ul>
     <p><strong>Gerar ato de emenda à inicial:</strong> quando a análise indica necessidade de emenda, a extensão oferece a geração da minuta diretamente no chat. A bolha traz o botão <strong>Encaminhar e inserir no PJe</strong> (no lugar de <strong>Inserir no PJe</strong>), que encaminha a tarefa e insere o texto da minuta no editor da nova tarefa em uma única ação.</p>
-    <blockquote>Antes do primeiro uso da Triagem Inteligente, revise os critérios e o catálogo de etiquetas no popup. Esses ajustes alimentam tanto os prompts quanto a comparação das etiquetas com o processo, e definem o resultado.</blockquote>
+    <blockquote>Antes do primeiro uso da Triagem Inteligente, revise os critérios (aba Triagem Inteligente) e os grupos de etiquetas (aba Etiquetas Inteligentes) no popup. Esses ajustes alimentam os prompts e a classificação das etiquetas, e definem o resultado.</blockquote>
+
+    <h4 id="triagem-lote">Triagem em lote</h4>
+    <p>Botão no grupo Painel da Triagem Inteligente. Faz, de uma vez, a triagem completa dos processos das tarefas de análise inicial: para cada processo, um <strong>resumo</strong> (pedido, causa, situação e próximo passo), a <strong>prioridade</strong>, a conferência de <strong>cadastro</strong>, as <strong>etiquetas</strong> sugeridas por grupo e um <strong>lembrete</strong> — tudo num painel para você revisar e aplicar.</p>
+    <p><strong>Tela de configuração.</strong> Ao clicar, abre-se antes uma tela para você <strong>recortar o escopo</strong>:</p>
+    <ul>
+      <li><strong>Competência</strong> — quais competências entram (por ora, JEF). Só os processos dessas competências são analisados.</li>
+      <li><strong>Tarefas</strong> — quais tarefas de triagem incluir.</li>
+      <li><strong>Filtros</strong> — período de chegada na tarefa e/ou quantidade máxima por tarefa.</li>
+    </ul>
+    <p>Confirme para iniciar. O andamento aparece na própria aba e, ao final, abre o painel da Triagem em lote.</p>
+    <p><strong>No painel</strong>, cada processo traz o resumo, a prioridade, o veredito de cadastro e as etiquetas sugeridas por grupo. Você pode:</p>
+    <ul>
+      <li><strong>Conferir o resultado por critério</strong> — um clique em <em>Conferir resultado por critério</em> abre, sem sair do card, o checklist de admissibilidade item a item (atendido / não atendido), com a justificativa e a providência de cada ponto.</li>
+      <li><strong>Aplicar etiquetas</strong> e <strong>gravar lembretes</strong> em lote nos processos que você marcar.</li>
+      <li><strong>Sanear cadastro</strong> — nos processos com pendências que a extensão sabe resolver, corrigir o cadastro direto do painel, individualmente (botão na linha) ou em lote (barra <strong>Sanear cadastro</strong> dos selecionados). É a mesma correção da Validação de cadastro (ver abaixo).</li>
+    </ul>
 
     <h4 id="validacao-cadastro">Validação de cadastro</h4>
     <p>Botão ao lado de <strong>Analisar tarefas</strong>, no grupo Painel. Confere, de uma vez, o cadastro das partes dos processos que estão nas tarefas de triagem e aponta o que está errado ou faltando — antes que o problema chegue à sentença.</p>
@@ -313,7 +327,8 @@
     <p>A <strong>Defensoria Pública da União</strong> é reconhecida como representação da parte (autora ou ré): quando patrocina o autor, não é apontada falta de advogado; quando defende o réu, não é tratada como representante indevido.</p>
     <ol>
       <li>No Painel do usuário do PJe, abra a <strong>Triagem Inteligente</strong> e clique em <strong>Validação de cadastro</strong>.</li>
-      <li>A extensão percorre as tarefas de triagem e confere cada processo. Acompanhe o progresso.</li>
+      <li>Abre a <strong>tela de configuração</strong> (a mesma da Triagem em lote): escolha a <strong>competência</strong>, as <strong>tarefas</strong> e os <strong>filtros</strong> (período/quantidade) e confirme. Esse recorte evita sobrecarga em unidades com muitos processos.</li>
+      <li>A extensão percorre as tarefas escolhidas e confere cada processo. Acompanhe o progresso.</li>
       <li>Abre o relatório <strong>Validação de cadastro</strong>, com os processos separados entre regulares e com pendências. Cada pendência traz o título do problema e a orientação de correção.</li>
       <li>Quando for o caso, é possível gerar a partir dali a <strong>minuta</strong> correspondente, já indicando o cadastro correto (por exemplo, o CNPJ certo do INSS).</li>
     </ol>
@@ -339,7 +354,8 @@
     <p>Como funciona: a extensão lê as partes do polo ativo dos processos da triagem (excluindo grandes litigantes como INSS, União e Caixa) e consulta a base da <strong>Júlia</strong> por cada CPF/CNPJ, em todas as seções e instâncias, para localizar outros processos daquela parte. Precisa de sessão ativa na Júlia.</p>
     <ol>
       <li>No Painel do usuário do PJe, abra a <strong>Triagem Inteligente</strong> e clique em <strong>Painel de prevenção</strong>.</li>
-      <li>Se a Júlia estiver desconectada, use o botão <strong>Conectar à Júlia</strong> que aparece no aviso — faça o login na aba que abrir e a verificação continua sozinha.</li>
+      <li>Abre a <strong>tela de configuração</strong> (a mesma da Triagem em lote): escolha a <strong>competência</strong>, as <strong>tarefas</strong> e os <strong>filtros</strong> (período/quantidade) e confirme. O recorte também reduz as consultas à Júlia.</li>
+      <li>Se a Júlia estiver desconectada, o botão <strong>Conectar à Júlia</strong> aparece na própria aba de configuração — faça o login na aba que abrir e a verificação continua sozinha.</li>
       <li>Ao terminar, abre o relatório: para cada processo da triagem, a lista dos <strong>processos preventos</strong> encontrados, com a parte em comum, o órgão julgador, a classe e a data de distribuição.</li>
       <li>Os números de processo são <strong>links</strong>: o da triagem abre os autos direto; o prevento abre o processo quando está na mesma instalação do PJe (senão, o número é copiado para você pesquisar).</li>
       <li>Você pode exportar em <strong>Excel</strong> e aplicar a etiqueta <strong>“Possível prevenção”</strong> em lote nos processos da triagem que tiveram relação.</li>
@@ -544,7 +560,7 @@
 
     <p><strong>"Encerrar expedientes" fica em erro.</strong> Verifique se a sessão do PJe está ativa (abra o PJe em outra aba). Se o PJe tiver mudado a estrutura da tela, reporte ao Inovajus pelo Suporte — enquanto isso, faça o encerramento manualmente pelo ícone <strong>Abrir tarefa</strong>.</p>
 
-    <p><strong>"Inserir etiquetas mágicas" não traz sugestões.</strong> Confirme na aba <strong>Etiquetas Inteligentes</strong> do popup que (a) o catálogo foi buscado (botão <strong>Buscar catálogo do PJe</strong>) e (b) há etiquetas marcadas no painel <strong>Sugestionáveis (selecionadas)</strong>. Sem etiquetas sugestionáveis, não há o que sugerir.</p>
+    <p><strong>"Inserir etiquetas mágicas" não traz sugestões.</strong> Na aba <strong>Etiquetas Inteligentes</strong> do popup, confirme que há <strong>grupos de etiquetas configurados</strong> (com opções) para a competência do processo, e que o <strong>catálogo do PJe foi buscado</strong>. Sem grupos aplicáveis à competência/assunto do processo, a extensão avisa que não há o que sugerir.</p>
 
     <p><strong>Perícias pAIdegua não mostra peritos.</strong> Cadastre os peritos na aba <strong>Perícias</strong> do popup. Sem peritos cadastrados, o painel não tem por quem agrupar.</p>
 
