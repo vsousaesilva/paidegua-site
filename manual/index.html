@@ -57,6 +57,7 @@
           <li><a href="#carregar-documentos">5.2 Carregar Documentos</a></li>
           <li><a href="#ferramentas-gabinete">5.3 Gabinete</a></li>
           <li><a href="#ferramentas-secretaria">5.4 Secretaria</a></li>
+          <li><a href="#central-agrupadores">— Central de Agrupadores</a></li>
           <li><a href="#ferramentas-gestao">5.5 Gestão</a></li>
           <li><a href="#fale-com-julia">5.6 Fale com a Júlia</a></li>
           <li><a href="#analise-preditiva">— Análise preditiva da minuta</a></li>
@@ -73,8 +74,8 @@
 
   <main class="manual-content">
     <h1>Manual de Instalação e Uso</h1>
-    <p class="manual-meta">Versão <strong>1.16.0</strong> · Atualizado em 09/08/2026 · Mantido pelo <strong>Inovajus / JFCE</strong></p>
-    <p class="manual-lede">Plataforma de apoio à atividade e à gestão judicial no PJe — triagem inteligente, validação de cadastro, minutas com IA, pauta de audiência e perícia, controle criminal (Sigcrim), Central de Comunicação, Painel Gerencial, Prazos na Fita, Ordens PREVJUD, Painel de Perícias, pesquisa de jurisprudência com a Júlia, Consultor de Fluxos e chat livre sobre os autos. Operação em conformidade com a LGPD e a Resolução CNJ 615/2025.</p>
+    <p class="manual-meta">Versão <strong>1.17.0</strong> · Atualizado em 12/08/2026 · Mantido pelo <strong>Inovajus / JFCE</strong></p>
+    <p class="manual-lede">Plataforma de apoio à atividade e à gestão judicial no PJe — triagem inteligente, validação de cadastro, Central de Agrupadores, minutas com IA, pauta de audiência e perícia, controle criminal (Sigcrim), Central de Comunicação, Painel Gerencial, Prazos na Fita, Ordens PREVJUD, Painel de Perícias, pesquisa de jurisprudência com a Júlia, Consultor de Fluxos e chat livre sobre os autos. Operação em conformidade com a LGPD e a Resolução CNJ 615/2025.</p>
 
     <h2 id="parte-1-instalacao">PARTE 1 — Instalação</h2>
 
@@ -202,8 +203,8 @@
       <thead><tr><th>Perfil</th><th>Foco</th><th>Disponível em</th><th>Ferramentas principais</th></tr></thead>
       <tbody>
         <tr><td><strong>Gabinete</strong> (padrão)</td><td>Análise dos autos e produção de minutas</td><td>Todos os graus</td><td>Resumir, Resumir em áudio, Anonimizar, Minutar (triagem automática), Minutas com modelo, Audiência pAIdegua, Fale com a Júlia, Análise preditiva da minuta</td></tr>
-        <tr><td><strong>Secretaria</strong></td><td>Triagem, pauta e organização</td><td>1º grau apenas</td><td>Analisar tarefas, Triagem em lote, Validação de cadastro, Painel de prevenção, Analisar o processo, Inserir etiquetas mágicas, Audiência pAIdegua, Perícias pAIdegua, Central de Comunicação, Sigcrim</td></tr>
-        <tr><td><strong>Gestão</strong></td><td>Visão da diretoria de secretaria</td><td>Todos os graus</td><td>Painel Gerencial, Prazos na Fita, Ordens PREVJUD, Painel de Perícias</td></tr>
+        <tr><td><strong>Secretaria</strong></td><td>Triagem, pauta e organização</td><td>1º grau apenas</td><td>Analisar tarefas, Triagem em lote, Validação de cadastro, Painel de prevenção, Central de Agrupadores, Analisar o processo, Inserir etiquetas mágicas, Audiência pAIdegua, Perícias pAIdegua, Central de Comunicação, Sigcrim</td></tr>
+        <tr><td><strong>Gestão</strong></td><td>Visão da diretoria de secretaria</td><td>Todos os graus</td><td>Painel Gerencial, Prazos na Fita, Ordens PREVJUD, Painel de Perícias, Central de Agrupadores</td></tr>
       </tbody>
     </table>
     <p>O perfil padrão é definido em <strong>Geral → Perfil de trabalho</strong>; a troca na sessão corrente é feita pelo seletor no cabeçalho do painel lateral. Em instâncias de 2º grau e turma recursal, o perfil Secretaria não está disponível e o seletor oculta essa opção.</p>
@@ -304,9 +305,11 @@
       <li><strong>Filtros</strong> — período de chegada na tarefa e/ou quantidade máxima por tarefa.</li>
     </ul>
     <p>Confirme para iniciar. O andamento aparece na própria aba e, ao final, abre o painel da Triagem em lote.</p>
-    <p><strong>No painel</strong>, cada processo traz o resumo, a prioridade, o veredito de cadastro e as etiquetas sugeridas por grupo. Você pode:</p>
+    <p><strong>A Júlia precisa estar conectada.</strong> A triagem em lote também verifica <strong>prevenção</strong>, consultando a base da Júlia, e por isso a conexão é conferida <em>antes</em> de a análise começar. Se a sessão não estiver ativa, aparece o botão <strong>Conectar à Júlia</strong> na própria tela de configuração: faça o login na aba que abrir e a triagem recomeça sozinha. A verificação é feita na largada de propósito — a análise de cada processo consome leitura de documentos e IA, e não faria sentido descobrir a falta de conexão só no fim.</p>
+    <p><strong>No painel</strong>, cada processo traz o resumo, a prioridade, o veredito de cadastro, a prevenção e as etiquetas sugeridas por grupo. Você pode:</p>
     <ul>
       <li><strong>Conferir o resultado por critério</strong> — um clique em <em>Conferir resultado por critério</em> abre, sem sair do card, o checklist de admissibilidade item a item (atendido / não atendido), com a justificativa e a providência de cada ponto.</li>
+      <li><strong>Ver a possível prevenção</strong> — o selo <em>Possível prevenção (N)</em> indica quantos processos de fora do lote envolvem a mesma parte do polo ativo. Um clique em <em>Conferir os processos preventos</em> lista cada um com a instância, o órgão julgador, a classe, a data de distribuição e a parte em comum; o número abre o processo no PJe. Vale o mesmo do Painel de prevenção: é apoio à conferência, não decisão. Quando o processo não pôde ser verificado (parte sem CPF/CNPJ, ou a sessão da Júlia caiu no meio), o selo diz <em>Prevenção não verificada</em> em vez de dar a entender que não há prevento.</li>
       <li><strong>Aplicar etiquetas</strong> e <strong>gravar lembretes</strong> em lote nos processos que você marcar.</li>
       <li><strong>Sanear cadastro</strong> — nos processos com pendências que a extensão sabe resolver, corrigir o cadastro direto do painel, individualmente (botão na linha) ou em lote (barra <strong>Sanear cadastro</strong> dos selecionados). É a mesma correção da Validação de cadastro (ver abaixo).</li>
     </ul>
@@ -361,6 +364,26 @@
       <li>Você pode exportar em <strong>Excel</strong> e aplicar a etiqueta <strong>“Possível prevenção”</strong> em lote nos processos da triagem que tiveram relação.</li>
     </ol>
     <blockquote>A base da Júlia é atualizada em lote e fica alguns dias defasada — um processo muito recente pode ainda não aparecer. Cada verificação fica registrada em um histórico local de auditoria, sem guardar o CPF/CNPJ em texto.</blockquote>
+
+    <h4 id="central-agrupadores">Central de Agrupadores</h4>
+    <p>Disponível nos perfis <strong>Secretaria</strong> e <strong>Gestão</strong>, no Painel do usuário. Trata em lote a aba <strong>Agrupadores</strong> do PJe — os painéis de pendências (petições avulsas não lidas, habilitações não lidas, documentos não lidos, mandados devolvidos, liminar não apreciada, assistência judiciária gratuita não apreciada e processos sob análise de prevenção), que somados passam de duas mil linhas.</p>
+    <p>A tela nativa mostra as pendências de dez em dez, não tem filtro e não avisa quando o mesmo processo está em vários agrupadores ao mesmo tempo. A Central resolve os três pontos.</p>
+    <ol>
+      <li>No Painel do usuário do PJe, clique em <strong>Central de Agrupadores</strong>.</li>
+      <li>Abre a tela de configuração: marque <strong>quais agrupadores</strong> varrer e, se quiser, um <strong>teto de linhas</strong>. A última escolha fica lembrada para a próxima vez.</li>
+      <li>A varredura percorre cada agrupador por inteiro, mostrando o andamento por agrupador. Como o de gratuidade sozinho passa de novecentas linhas, há botão para <strong>cancelar</strong> no meio.</li>
+      <li>Ao final abre o painel, com o total de linhas coletadas, os <strong>processos distintos</strong>, quantos aparecem em <strong>dois ou mais agrupadores</strong> e a métrica de <strong>sobreposição</strong>.</li>
+    </ol>
+    <p><strong>No painel</strong>, você pode:</p>
+    <ul>
+      <li><strong>Filtrar</strong> por peticionante, tipo de documento, classe, órgão, tarefa, idade do destaque, etiqueta ou texto livre (a busca ignora acentos).</li>
+      <li>Ver a <strong>visão consolidada</strong>: cada processo uma única vez, com os selos de todos os agrupadores em que ele aparece — é onde a duplicidade de trabalho fica visível.</li>
+      <li><strong>Etiquetar em lote</strong> na família <strong>[AGRUP] &lt;tipo do documento&gt;</strong>. As etiquetas que ainda não existirem são criadas no catálogo da unidade e marcadas como favoritas, para aparecerem na barra do painel. Etiquetar é reversível.</li>
+      <li><strong>Retirar de destaque em lote</strong>. Essa ação <strong>não tem volta</strong> pela extensão: só é executada depois de um resumo do que será feito e da sua confirmação explícita.</li>
+      <li>No agrupador de <strong>análise de prevenção</strong>, abrir direto a tela do PJe em que se decide, processo a processo, entre <em>prevento</em> e <em>não prevento</em>. A extensão leva você até lá; a decisão é sua.</li>
+      <li><strong>Baixar em Excel</strong> as linhas filtradas e <strong>atualizar o relatório</strong> sem recarregar a página.</li>
+    </ul>
+    <blockquote>Em alguns agrupadores o PJe não expõe o identificador do processo na linha; nesses casos a etiquetagem fica indisponível e o painel avisa o motivo. As ações em lote ficam registradas num histórico local de auditoria, <strong>sem dados pessoais e sem número de processo</strong>.</blockquote>
 
     <h4 id="pericias">Perícias pAIdegua</h4>
     <p>Disponível apenas em 1º grau. Acelera a montagem da pauta de perícia agrupando os processos por perito cadastrado.</p>
