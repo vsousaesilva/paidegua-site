@@ -47,6 +47,7 @@
           <li><a href="#popup-comunicacao">3.5 Central de Comunicação</a></li>
           <li><a href="#popup-mapas">3.6 Mapas de Jornada</a></li>
           <li><a href="#popup-mais">3.7 Mais opções</a></li>
+          <li><a href="#funcionalidades-extensao">— Escolher as funcionalidades</a></li>
           <li><a href="#popup-rodape">Rodapé</a></li>
         </ul>
       </li>
@@ -74,7 +75,7 @@
 
   <main class="manual-content">
     <h1>Manual de Instalação e Uso</h1>
-    <p class="manual-meta">Versão <strong>1.17.0</strong> · Atualizado em 12/08/2026 · Mantido pelo <strong>Inovajus / JFCE</strong></p>
+    <p class="manual-meta">Versão <strong>1.18.0</strong> · Atualizado em 17/08/2026 · Mantido pelo <strong>Inovajus / JFCE</strong></p>
     <p class="manual-lede">Plataforma de apoio à atividade e à gestão judicial no PJe — triagem inteligente, validação de cadastro, Central de Agrupadores, minutas com IA, pauta de audiência e perícia, controle criminal (Sigcrim), Central de Comunicação, Painel Gerencial, Prazos na Fita, Ordens PREVJUD, Painel de Perícias, pesquisa de jurisprudência com a Júlia, Consultor de Fluxos e chat livre sobre os autos. Operação em conformidade com a LGPD e a Resolução CNJ 615/2025.</p>
 
     <h2 id="parte-1-instalacao">PARTE 1 — Instalação</h2>
@@ -190,6 +191,13 @@
     <p>Toggles de UI passiva que controlam quais funcionalidades <strong>automáticas</strong> o pAIdegua injeta no PJe sem você precisar pedir (todas vêm ligadas por padrão). São pequenos auxiliares que sentam dentro do próprio PJe — ao desligar um toggle aqui, a UI correspondente some sem afetar o painel lateral nem os módulos principais.</p>
     <p>Use esta aba para personalizar o nível de interferência da extensão na interface do PJe.</p>
 
+    <h4 id="funcionalidades-extensao">Funcionalidades da extensão — escolher o que aparece</h4>
+    <p>Logo abaixo dos avisos automáticos, a seção <strong>Funcionalidades da extensão</strong> permite <strong>ocultar os módulos que a sua unidade não usa</strong>. Uma vara previdenciária pode desmarcar o <strong>Sigcrim</strong>; uma secretaria que não trabalha com perícias pode desmarcar <strong>Perícias pAIdegua</strong>. Os módulos aparecem agrupados por perfil (Secretaria, Gestão, Gabinete e os que valem para todos), cada um com uma frase explicando o que deixa de ficar visível.</p>
+    <p>Ao desmarcar um item, duas coisas somem: o <strong>botão no painel lateral do PJe</strong> e, quando a configuração pertence só àquele módulo, a <strong>aba ou seção correspondente neste popup</strong>. Desmarcar Perícias, por exemplo, também esconde a aba <strong>Perícias</strong>; desmarcar o Sigcrim esconde a seção <strong>Sigcrim — acervo criminal</strong> da aba Geral.</p>
+    <blockquote><strong>Ocultar não é desinstalar nem apagar.</strong> A funcionalidade continua inteira, seus dados continuam guardados e nada para de funcionar por dentro. Rotinas que rodam em segundo plano — como a exportação automática agendada do Sigcrim — seguem normalmente, e módulos que dependem internamente do que você ocultou continuam funcionando: esconder o <strong>Fale com a Júlia</strong> não desliga a Júlia usada pelo Painel de prevenção.</blockquote>
+    <p>Para trazer tudo de volta, use o botão <strong>Mostrar todas</strong> no fim da seção, ou marque de novo apenas o item desejado. A mudança vale <strong>na hora</strong>, mesmo com o PJe já aberto em outra aba — não é preciso recarregar a página.</p>
+    <p>A aba <strong>Mais opções</strong> nunca pode ser ocultada: é por ela que você reativa o que escondeu. As ações básicas sobre o processo (Carregar Documentos, Resumir, Anonimizar, Minutar e as Minutas com modelo) também permanecem sempre visíveis.</p>
+
     <h3 id="popup-rodape">Rodapé do popup</h3>
     <ul>
       <li><strong>Diagnóstico</strong> — abre a página com o histórico das últimas 30 varreduras (Painel Gerencial, Prazos na Fita, Triagem Inteligente). Para cada uma: quando foi feita, em qual unidade, processos lidos / com erro, tempo total, se a sessão do PJe precisou ser renovada, blocos <strong>Probe Keycloak</strong> e <strong>Histórico HTTP 403</strong>. Os dados ficam apenas no seu navegador.</li>
@@ -209,6 +217,7 @@
     </table>
     <p>O perfil padrão é definido em <strong>Geral → Perfil de trabalho</strong>; a troca na sessão corrente é feita pelo seletor no cabeçalho do painel lateral. Em instâncias de 2º grau e turma recursal, o perfil Secretaria não está disponível e o seletor oculta essa opção.</p>
     <p>Há ainda a seção <strong>Conhecimento</strong>, sem perfil específico, que dá acesso ao <strong>Consultor de Fluxos</strong>.</p>
+    <p>O perfil define o que o <em>cargo</em> vê. Se a sua unidade não usa alguma das ferramentas acima, você pode ocultá-la individualmente em <strong>Mais opções → Funcionalidades da extensão</strong> — o botão some do painel sem desinstalar nada, e volta quando você quiser.</p>
     <blockquote>As ferramentas de Gestão <strong>Ordens PREVJUD</strong> e <strong>Painel de Perícias</strong> só existem no 1º grau. O <strong>Controle Metas CNJ</strong> está temporariamente indisponível nesta versão (ver 5.5).</blockquote>
 
     <h2 id="parte-5-painel">PARTE 5 — Painel lateral e ferramentas</h2>
@@ -558,6 +567,8 @@
     <h2 id="parte-7-problemas">PARTE 7 — Solução de problemas</h2>
 
     <p><strong>Extensão não aparece no PJe.</strong> Verifique primeiro se o interruptor <strong>Extensão Ativada</strong> no topo do popup está ligado — se estiver desligado, o pAIdegua fica invisível no PJe de propósito. Se estiver ligado, confirme se a extensão está ativa em <code>chrome://extensions</code> ou <code>edge://extensions</code>. Após qualquer mudança, recarregue a página do PJe.</p>
+
+    <p><strong>Um botão sumiu do painel lateral (ou uma aba sumiu do popup).</strong> Antes de supor defeito, verifique três coisas, nesta ordem. Primeiro, o <strong>perfil de trabalho</strong> no cabeçalho do painel: cada perfil mostra um conjunto diferente de ferramentas (ver Parte 4). Segundo, a seção <strong>Funcionalidades da extensão</strong>, em <strong>Mais opções</strong> — se o módulo estiver desmarcado ali, o botão e a configuração dele ficam ocultos de propósito; basta marcar de novo, ou usar <strong>Mostrar todas</strong>. Terceiro, algumas ferramentas só aparecem em contexto: as de Gestão exigem o <strong>Painel do usuário</strong> aberto, e as que leem os autos exigem um <strong>processo aberto</strong>.</p>
 
     <p><strong>Não consigo fazer login (e-mail não autorizado).</strong> A liberação é feita pelo Inovajus para os membros do grupo piloto. Solicite via formulário <strong>Suporte</strong> (rodapé do popup) informando seu e-mail institucional, vara/unidade e papel.</p>
 
