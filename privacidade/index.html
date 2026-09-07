@@ -28,7 +28,7 @@
 <div class="doc-layout">
   <main class="manual-content">
     <h1>Política de Privacidade</h1>
-    <p class="manual-meta">Versão da extensão <strong>1.10.2</strong> · Atualizada em 19/07/2026 · <strong>Inovajus / JFCE</strong></p>
+    <p class="manual-meta">Versão da extensão <strong>1.10.2</strong> · Atualizada em 05/09/2026 · <strong>Inovajus / JFCE</strong></p>
 
     <p class="manual-lede">A extensão <strong>pAIdegua</strong> é desenvolvida pelo <strong>Laboratório de Inovação da Justiça Federal do Ceará (Inovajus / JFCE)</strong> e destina-se ao uso institucional por magistrados e servidores da Justiça Federal da 5ª Região. Este documento descreve quais dados a extensão trata, com que finalidade e sob quais bases legais, em conformidade com a <strong>Lei nº 13.709/2018 (LGPD)</strong> e com a <strong>Resolução CNJ nº 615/2025</strong>.</p>
 
@@ -47,7 +47,7 @@
       <li><strong>Atividade jurisdicional individual</strong> — triagem inicial de processos, validação do cadastro das partes, etiquetas inteligentes, anonimização, geração de minutas com modelos da própria unidade, consulta a fluxos processuais, pesquisa de jurisprudência e especializações por matéria (criminal, audiência, perícia).</li>
       <li><strong>Gestão judicial coletiva</strong> — painel de indicadores da unidade, controle de prazos em massa, acompanhamento das ordens PREVJUD enviadas ao INSS, painel de perícias e triagem em lote.</li>
     </ul>
-    <p><strong>Toda decisão jurídica permanece exclusivamente humana.</strong> O apoio inteligente utiliza modelos de IA dos provedores Anthropic, OpenAI e Google, com chave de API configurada localmente pelo próprio usuário. Nenhum conteúdo de processo é persistido em servidor do Inovajus.</p>
+    <p><strong>Toda decisão jurídica permanece exclusivamente humana.</strong> O apoio inteligente utiliza modelos de IA dos provedores Anthropic, OpenAI, Google e DeepSeek, com chave de API configurada localmente pelo próprio usuário. Nenhum conteúdo de processo é persistido em servidor do Inovajus.</p>
     <p>A extensão classifica-se como <strong>ferramenta de baixo risco</strong> segundo o Anexo da Resolução CNJ 615/2025 (itens BR4 e BR8 — produção de textos de apoio e anonimização).</p>
 
     <h2 id="dados">3. Dados tratados</h2>
@@ -80,8 +80,14 @@
       <li><strong>Anthropic Claude</strong> — <a href="https://www.anthropic.com/legal/privacy" target="_blank" rel="noopener">política de privacidade</a></li>
       <li><strong>OpenAI</strong> — <a href="https://openai.com/policies/privacy-policy" target="_blank" rel="noopener">política de privacidade</a></li>
       <li><strong>Google Gemini</strong> — <a href="https://policies.google.com/privacy" target="_blank" rel="noopener">política de privacidade</a></li>
+      <li><strong>DeepSeek</strong> — <a href="https://cdn.deepseek.com/policies/en-US/deepseek-privacy-policy.html" target="_blank" rel="noopener">política de privacidade</a></li>
     </ul>
     <p>O Inovajus <strong>não intermedeia</strong> essa transmissão e não recebe o conteúdo enviado. Aplica-se a política de privacidade do provedor escolhido.</p>
+    <p>O acesso do navegador ao endereço do <strong>DeepSeek</strong> é uma <strong>permissão opcional</strong>: só é solicitada no momento em que você cadastra a chave desse provedor, e é devolvida ao navegador quando a chave é removida. Quem não usa o DeepSeek nunca concede esse acesso.</p>
+
+    <h4 id="transferencia-internacional">Transferência internacional de dados</h4>
+    <blockquote><strong>DeepSeek — dados tratados na China.</strong> A política de privacidade do provedor (atualizada em 10/02/2026) declara que os dados pessoais são coletados, tratados e armazenados na <strong>República Popular da China</strong>, sob controle da Hangzhou DeepSeek Artificial Intelligence Co., Ltd. A escolha desse provedor configura <strong>transferência internacional de dados</strong> (art. 33 da Lei 13.709/2018) para país sem decisão de adequação da ANPD.</blockquote>
+    <p>Por isso, ao usar o DeepSeek recomenda-se acionar a <strong>anonimização</strong> antes de qualquer envio, e restringir o uso a conteúdo sem dados pessoais identificáveis. Os demais provedores também tratam dados fora do país e nenhum destino conta hoje com decisão de adequação da ANPD: em todos os casos, a legitimidade da transferência depende do instrumento contratual oferecido pelo provedor da chave. Cabe ao usuário e à Administração verificar essa condição antes de adotar qualquer provedor.</p>
 
     <h4 id="anonimizacao">Anonimização — como funciona de fato</h4>
     <blockquote><strong>A anonimização depende de ação sua.</strong> Nas ações de resumo e de minuta, o conteúdo é enviado ao provedor <em>como extraído dos autos</em>, salvo se você acionar antes o botão <strong>Anonimizar autos</strong>. Não há anonimização automática nesse caminho.</blockquote>
