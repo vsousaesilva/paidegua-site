@@ -58,6 +58,7 @@
           <li><a href="#carregar-documentos">5.2 Carregar Documentos</a></li>
           <li><a href="#ferramentas-gabinete">5.3 Gabinete</a></li>
           <li><a href="#ferramentas-secretaria">5.4 Secretaria</a></li>
+          <li><a href="#triagem-lote">— Triagem em lote</a></li>
           <li><a href="#conferir-autuacao">— Conferir autuação</a></li>
           <li><a href="#conferencia-remessa">— Conferência da remessa ao TRF5</a></li>
           <li><a href="#central-agrupadores">— Central de Agrupadores</a></li>
@@ -77,7 +78,7 @@
 
   <main class="manual-content">
     <h1>Manual de Instalação e Uso</h1>
-    <p class="manual-meta">Versão <strong>1.19.0</strong> · Atualizado em 06/09/2026 · Mantido pelo <strong>Inovajus / JFCE</strong></p>
+    <p class="manual-meta">Versão <strong>1.20.0</strong> · Atualizado em 07/09/2026 · Mantido pelo <strong>Inovajus / JFCE</strong></p>
     <p class="manual-lede">Plataforma de apoio à atividade e à gestão judicial no PJe — triagem inteligente, validação de cadastro, Central de Agrupadores, minutas com IA, pauta de audiência e perícia, controle criminal (Sigcrim), Central de Comunicação, Painel Gerencial, Prazos na Fita, Ordens PREVJUD, Painel de Perícias, pesquisa de jurisprudência com a Júlia, Consultor de Fluxos e chat livre sobre os autos. Operação em conformidade com a LGPD e a Resolução CNJ 615/2025.</p>
 
     <h2 id="parte-1-instalacao">PARTE 1 — Instalação</h2>
@@ -316,13 +317,20 @@
     <ul>
       <li><strong>Competência</strong> — quais competências entram (por ora, JEF). Só os processos dessas competências são analisados.</li>
       <li><strong>Tarefas</strong> — quais tarefas de triagem incluir.</li>
-      <li><strong>Filtros</strong> — período de chegada na tarefa e/ou quantidade máxima por tarefa.</li>
+      <li><strong>Filtros</strong> — período de chegada na tarefa e/ou quantidade máxima por tarefa. O período inclui os <strong>dois</strong> dias escolhidos: marcar de 1º a 30 de setembro traz também os processos que chegaram no dia 30, e escolher o mesmo dia nas duas pontas traz os daquele dia.</li>
     </ul>
-    <p>Confirme para iniciar. O andamento aparece na própria aba e, ao final, abre o painel da Triagem em lote.</p>
+
+    <p><strong>Ao confirmar, esta tela se fecha e você volta para a aba do PJe.</strong> É de propósito. A leitura dos documentos acontece na aba do PJe, e o navegador desacelera fortemente qualquer aba que fique em segundo plano — em teste, um mesmo documento passou de 0,2 para 31 segundos. O acompanhamento passa então a aparecer no <strong>painel lateral do PJe</strong>, atualizado a cada etapa.</p>
+    <p><strong>Mantenha a aba do PJe à frente até o fim.</strong> Se você trocar de aba durante a triagem, ela não para, mas fica muitas vezes mais lenta. Não é preciso clicar em nada: o relatório abre sozinho quando o último processo terminar.</p>
+    <p><strong>Se algo interromper a triagem</strong> — a aba do PJe foi fechada, a sessão do PJe expirou —, o relatório abre assim mesmo, com tudo o que já havia sido analisado. O que já foi lido não se perde.</p>
+    <p><strong>Retomar uma triagem interrompida.</strong> Se a anterior parou no meio, ao iniciar outra com o mesmo recorte a tela pergunta se você quer <strong>retomar</strong>, aproveitando os processos já analisados, ou <strong>começar do zero</strong>. Retomar poupa a leitura de documentos e a análise que já foram feitas.</p>
+
+    <p><strong>O ApoIA precisa estar disponível — e você decide se segue sem ele.</strong> O <strong>ApoIA</strong> é a base nacional do CNJ de onde a extensão obtém o texto das peças já digitalizadas. Com ele, cada processo leva poucos segundos. Sem ele, a extensão baixa e reconhece o texto de cada documento na sua própria máquina, um de cada vez — dezenas de segundos por processo, e a diferença num lote é de minutos para dezenas de minutos. Por isso a tela confere a disponibilidade antes de começar e, se ele não responder, oferece <strong>Seguir sem o ApoIA</strong>: a triagem funciona igual, só demora bem mais. A escolha é sua, mas ela é feita na largada, e não descoberta no meio do caminho.</p>
     <p><strong>A Júlia precisa estar conectada.</strong> A triagem em lote também verifica <strong>prevenção</strong>, consultando a base da Júlia, e por isso a conexão é conferida <em>antes</em> de a análise começar. Se a sessão não estiver ativa, aparece o botão <strong>Conectar à Júlia</strong> na própria tela de configuração: faça o login na aba que abrir e a triagem recomeça sozinha. A verificação é feita na largada de propósito — a análise de cada processo consome leitura de documentos e IA, e não faria sentido descobrir a falta de conexão só no fim.</p>
     <p><strong>No painel</strong>, cada processo traz o resumo, a prioridade, o veredito de cadastro, a prevenção e as etiquetas sugeridas por grupo. Você pode:</p>
     <ul>
-      <li><strong>Conferir o resultado por critério</strong> — um clique em <em>Conferir resultado por critério</em> abre, sem sair do card, o checklist de admissibilidade item a item (atendido / não atendido), com a justificativa e a providência de cada ponto.</li>
+      <li><strong>Conferir o resultado por critério</strong> — um clique em <em>Conferir resultado por critério</em> abre, sem sair do card, o checklist de admissibilidade item a item (atendido / não atendido), com a justificativa e a providência de cada ponto. Quando a inteligência artificial deixa de redigir o texto de uma providência, o card diz isso com todas as letras — <em>Sem providência redigida pela IA</em> —, listando o critério à parte, em vez de exibir o nome do critério como se fosse a frase do ato. Esses pontos ficam por sua conta redigir.</li>
+      <li><strong>Saber o que a IA leu, e o que não leu</strong> — o card informa quantas peças dos autos <strong>não</strong> tiveram o conteúdo lido e permite abrir a lista, peça a peça, com o motivo de cada uma: peça sob sigilo, documento digitalizado sem texto reconhecível, peça ainda não disponível na base nacional, ou limite de leitura do processo. Isso importa para a conferência: quando uma peça entra apenas por existência, a análise sabe que ela está nos autos, mas não o que ela diz. <strong>Confira essas peças antes de exigir qualquer juntada.</strong></li>
       <li><strong>Ver a possível prevenção</strong> — o selo <em>Possível prevenção (N)</em> indica quantos processos de fora do lote envolvem a mesma parte do polo ativo. Um clique em <em>Conferir os processos preventos</em> lista cada um com a instância, o órgão julgador, a classe, a data de distribuição e a parte em comum; o número abre o processo no PJe. Vale o mesmo do Painel de prevenção: é apoio à conferência, não decisão. Quando o processo não pôde ser verificado (parte sem CPF/CNPJ, ou a sessão da Júlia caiu no meio), o selo diz <em>Prevenção não verificada</em> em vez de dar a entender que não há prevento.</li>
       <li><strong>Aplicar etiquetas</strong> e <strong>gravar lembretes</strong> em lote nos processos que você marcar.</li>
       <li><strong>Sanear cadastro</strong> — nos processos com pendências que a extensão sabe resolver, corrigir o cadastro direto do painel, individualmente (botão na linha) ou em lote (barra <strong>Sanear cadastro</strong> dos selecionados). É a mesma correção da Validação de cadastro (ver abaixo).</li>
@@ -344,7 +352,7 @@
     <p>A <strong>Defensoria Pública da União</strong> é reconhecida como representação da parte (autora ou ré): quando patrocina o autor, não é apontada falta de advogado; quando defende o réu, não é tratada como representante indevido.</p>
     <ol>
       <li>No Painel do usuário do PJe, abra a <strong>Triagem Inteligente</strong> e clique em <strong>Validação de cadastro</strong>.</li>
-      <li>Abre a <strong>tela de configuração</strong> (a mesma da Triagem em lote): escolha a <strong>competência</strong>, as <strong>tarefas</strong> e os <strong>filtros</strong> (período/quantidade) e confirme. Esse recorte evita sobrecarga em unidades com muitos processos.</li>
+      <li>Abre a <strong>tela de configuração</strong> (a mesma da Triagem em lote): escolha a <strong>competência</strong>, as <strong>tarefas</strong> e os <strong>filtros</strong> (período/quantidade) e confirme. Esse recorte evita sobrecarga em unidades com muitos processos. Diferente da Triagem em lote, aqui a tela <strong>continua aberta</strong> mostrando o andamento: a validação não lê documentos, então não há motivo para devolver você à aba do PJe.</li>
       <li>A extensão percorre as tarefas escolhidas e confere cada processo. Acompanhe o progresso.</li>
       <li>Abre o relatório <strong>Validação de cadastro</strong>, com os processos separados entre regulares e com pendências. Cada pendência traz o título do problema e a orientação de correção.</li>
       <li>Quando for o caso, é possível gerar a partir dali a <strong>minuta</strong> correspondente, já indicando o cadastro correto (por exemplo, o CNPJ certo do INSS).</li>
@@ -371,7 +379,7 @@
     <p>Como funciona: a extensão lê as partes do polo ativo dos processos da triagem (excluindo grandes litigantes como INSS, União e Caixa) e consulta a base da <strong>Júlia</strong> por cada CPF/CNPJ, em todas as seções e instâncias, para localizar outros processos daquela parte. Precisa de sessão ativa na Júlia.</p>
     <ol>
       <li>No Painel do usuário do PJe, abra a <strong>Triagem Inteligente</strong> e clique em <strong>Painel de prevenção</strong>.</li>
-      <li>Abre a <strong>tela de configuração</strong> (a mesma da Triagem em lote): escolha a <strong>competência</strong>, as <strong>tarefas</strong> e os <strong>filtros</strong> (período/quantidade) e confirme. O recorte também reduz as consultas à Júlia.</li>
+      <li>Abre a <strong>tela de configuração</strong> (a mesma da Triagem em lote): escolha a <strong>competência</strong>, as <strong>tarefas</strong> e os <strong>filtros</strong> (período/quantidade) e confirme. O recorte também reduz as consultas à Júlia. Diferente da Triagem em lote, aqui a tela <strong>continua aberta</strong> mostrando o andamento: a verificação de prevenção consulta a Júlia e não lê documentos.</li>
       <li>Se a Júlia estiver desconectada, o botão <strong>Conectar à Júlia</strong> aparece na própria aba de configuração — faça o login na aba que abrir e a verificação continua sozinha.</li>
       <li>Ao terminar, abre o relatório: para cada processo da triagem, a lista dos <strong>processos preventos</strong> encontrados, com a parte em comum, o órgão julgador, a classe e a data de distribuição.</li>
       <li>Os números de processo são <strong>links</strong>: o da triagem abre os autos direto; o prevento abre o processo quando está na mesma instalação do PJe (senão, o número é copiado para você pesquisar).</li>
