@@ -28,7 +28,7 @@
 <div class="doc-layout">
   <main class="manual-content">
     <h1>Política de Privacidade</h1>
-    <p class="manual-meta">Versão da extensão <strong>1.22.0</strong> · Atualizada em 18/10/2026 · <strong>Inovajus / JFCE</strong></p>
+    <p class="manual-meta">Versão da extensão <strong>1.23.0</strong> · Atualizada em 01/11/2026 · <strong>Inovajus / JFCE</strong></p>
 
     <p class="manual-lede">A extensão <strong>pAIdegua</strong> é desenvolvida pelo <strong>Laboratório de Inovação da Justiça Federal do Ceará (Inovajus / JFCE)</strong> e destina-se ao uso institucional por magistrados e servidores da Justiça Federal da 5ª Região. Este documento descreve quais dados a extensão trata, com que finalidade e sob quais bases legais, em conformidade com a <strong>Lei nº 13.709/2018 (LGPD)</strong> e com a <strong>Resolução CNJ nº 615/2025</strong>.</p>
 
@@ -62,7 +62,7 @@
       <li>Pasta local com modelos de minuta, opcionalmente indicada pelo usuário;</li>
       <li>Registros de diagnóstico das últimas varreduras, sem conteúdo de processos, exibidos apenas na tela de Diagnóstico.</li>
     </ul>
-    <p><strong>Conteúdo de processos judiciais não é persistido</strong> nesse armazenamento. Os dados dos painéis (Triagem, Gestão, Perícias, Prazos na Fita, Ordens PREVJUD, Validação de cadastro) permanecem em armazenamento de sessão e são descartados ao fechar o navegador ou a aba do painel.</p>
+    <p><strong>Conteúdo de processos judiciais não é persistido</strong> nesse armazenamento. Os dados dos painéis (Triagem, Gestão, Perícias, Prazos na Fita, Ordens PREVJUD, Validação de cadastro, Central de Agrupadores) permanecem em armazenamento de sessão e são descartados ao fechar o navegador ou a aba do painel.</p>
 
     <h3 id="dados-backend">3.2 Dados tratados pelo serviço de autenticação</h3>
     <p>O uso da extensão exige login. O serviço do Inovajus é um <strong>Cloudflare Worker</strong> em <code>https://kanban.paidegua.ia.br/api/auth/extension</code>, que recebe e trata:</p>
@@ -107,12 +107,25 @@
     <h3 id="dados-julia">3.4 Consulta à jurisprudência (Júlia — TRF5)</h3>
     <p>A funcionalidade <strong>Fale com a Júlia</strong> consulta a base de jurisprudência do TRF5. Nessa consulta:</p>
     <ul>
-      <li>a extensão <strong>não armazena credenciais</strong> — utiliza a sessão que você já abriu na Júlia, no próprio navegador;</li>
+      <li>a extensão <strong>não armazena credenciais</strong> — utiliza a sessão da Júlia aberta no próprio navegador;</li>
       <li>documentos marcados como <strong>sigilosos são descartados</strong> antes de qualquer exibição, e não são enviados a provedor de IA;</li>
       <li>o texto é anonimizado antes de ser submetido ao modelo de IA;</li>
       <li>sem sessão autenticada na Júlia, a consulta permanece restrita ao acervo público de 2º grau.</li>
     </ul>
-    <p><strong>Verificação de prevenção.</strong> O <strong>Painel de prevenção</strong>, a <strong>Triagem em lote</strong> e, a partir da versão 1.22.0, o <strong>Analisar o processo</strong> consultam a Júlia pelo <strong>CPF ou CNPJ das partes do polo ativo</strong>, para localizar outros processos das mesmas partes. A consulta usa a sessão que você abriu na Júlia e vai do seu navegador diretamente ao TRF5: o CPF/CNPJ <strong>não é enviado a provedor de IA</strong> nem ao serviço do Inovajus, e o resultado é exibido apenas na tela.</p>
+    <p><strong>Login na Júlia pela extensão</strong> (a partir da versão 1.23.0). A sessão da Júlia pode ser aberta pelo site da Júlia ou pela janela <strong>Entrar na Júlia</strong> da própria extensão. Nessa janela:</p>
+    <ul>
+      <li>o usuário e a senha são os <strong>mesmos da rede</strong>, e a janela avisa isso antes do preenchimento;</li>
+      <li>usuário, senha e órgão vão <strong>diretamente do seu navegador ao servidor da Júlia</strong> (<code>julia.trf5.jus.br</code>), por conexão segura, e são descartados em seguida;</li>
+      <li>a extensão <strong>não grava</strong> usuário, senha nem órgão, não os registra em log e não os envia ao serviço do Inovajus, a provedor de IA ou a qualquer outro destino;</li>
+      <li>a sessão aberta é guardada pelo próprio navegador, como ocorre no login pelo site da Júlia, e termina ao fechar o navegador ou pelo botão <strong>Sair da Júlia</strong>, no popup.</li>
+    </ul>
+    <p><strong>Verificação de prevenção.</strong> O <strong>Painel de prevenção</strong>, a <strong>Triagem em lote</strong> e o <strong>Analisar o processo</strong> consultam a Júlia pelo <strong>CPF ou CNPJ das partes</strong>, para localizar outros processos das mesmas partes. A partir da versão 1.23.0, a consulta abrange as partes do <strong>polo ativo e do polo passivo</strong> — por exemplo, o réu na ação penal e o executado na execução fiscal. Não são consultados:</p>
+    <ul>
+      <li>os <strong>órgãos públicos</strong> e os <strong>entes ou autoridades</strong>;</li>
+      <li>os <strong>grandes litigantes</strong> (INSS, Caixa, Ministério Público Federal, Banco do Brasil e Correios);</li>
+      <li>as partes cadastradas como <em>outros interessados</em>.</li>
+    </ul>
+    <p>A consulta usa a sessão da Júlia aberta no navegador e vai diretamente ao TRF5: o CPF/CNPJ <strong>não é enviado a provedor de IA</strong> nem ao serviço do Inovajus, e o resultado é exibido apenas na tela.</p>
 
     <h2 id="finalidades">4. Finalidades e bases legais</h2>
     <table>
