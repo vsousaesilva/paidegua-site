@@ -57,12 +57,14 @@
           <li><a href="#acessar">5.1 Acessar</a></li>
           <li><a href="#carregar-documentos">5.2 Carregar Documentos</a></li>
           <li><a href="#ferramentas-gabinete">5.3 Gabinete</a></li>
+          <li><a href="#topico-sintese">— Tópico Síntese automático</a></li>
           <li><a href="#ferramentas-secretaria">5.4 Secretaria</a></li>
           <li><a href="#triagem-lote">— Triagem em lote</a></li>
           <li><a href="#conferir-autuacao">— Conferir autuação</a></li>
           <li><a href="#conferir-autuacao-lote">— Conferir autuação em lote</a></li>
           <li><a href="#conferencia-remessa">— Conferência da remessa ao TRF5</a></li>
           <li><a href="#central-agrupadores">— Central de Agrupadores</a></li>
+          <li><a href="#execucao-arretada">— Execução arretada</a></li>
           <li><a href="#ferramentas-gestao">5.5 Gestão</a></li>
           <li><a href="#fale-com-julia">5.6 Fale com a Júlia</a></li>
           <li><a href="#analise-preditiva">— Análise preditiva da minuta</a></li>
@@ -79,8 +81,8 @@
 
   <main class="manual-content">
     <h1>Manual de Instalação e Uso</h1>
-    <p class="manual-meta">Versão <strong>1.24.0</strong> · Atualizado em 04/11/2026 · Mantido pelo <strong>Inovajus / JFCE</strong></p>
-    <p class="manual-lede">Plataforma de apoio à atividade e à gestão judicial no PJe — triagem inteligente, validação de cadastro, Central de Agrupadores, minutas com IA, pauta de audiência e perícia, controle criminal (Sigcrim), Central de Comunicação, Painel Gerencial, Prazos na Fita, Ordens PREVJUD, Painel de Perícias, pesquisa de jurisprudência com a Júlia, Consultor de Fluxos e chat livre sobre os autos. Operação em conformidade com a LGPD e a Resolução CNJ 615/2025.</p>
+    <p class="manual-meta">Versão <strong>1.25.0</strong> · Atualizado em 09/11/2026 · Mantido pelo <strong>Inovajus / JFCE</strong></p>
+    <p class="manual-lede">Plataforma de apoio à atividade e à gestão judicial no PJe — triagem inteligente, validação de cadastro, Central de Agrupadores, minutas com IA, Tópico Síntese automático, cálculo da execução pela Fábrica de Cálculos do TRF3 (Execução arretada), pauta de audiência e perícia, controle criminal (Sigcrim), Central de Comunicação, Painel Gerencial, Prazos na Fita, Ordens PREVJUD, Painel de Perícias, pesquisa de jurisprudência com a Júlia, Consultor de Fluxos e chat livre sobre os autos. Operação em conformidade com a LGPD e a Resolução CNJ 615/2025.</p>
 
     <h2 id="parte-1-instalacao">PARTE 1 — Instalação</h2>
 
@@ -151,6 +153,7 @@
       <li><strong>O DeepSeek saiu da lista na versão 1.21.0.</strong> A política de privacidade dele declara o uso dos dados para treinar os próprios modelos, com recusa apenas por pedido ao provedor, e armazena os dados fora do país — o que não atende ao art. 19, §3º, III da Resolução CNJ 615/2025, que é o mesmo artigo que a <a href="#declaracao-ia">declaração de uso responsável</a> faz você afirmar. Se você usava o DeepSeek, o popup troca sozinho para o primeiro provedor permitido e avisa na tela; será preciso cadastrar a chave do novo provedor.</li>
       <li><strong>OCR de digitalizados.</strong> Marque <strong>Rodar OCR automaticamente</strong> se quiser que documentos digitalizados (PDFs de imagem) sejam lidos automaticamente após a extração. O reconhecimento de texto (OCR) é feito <strong>na sua máquina</strong>: o texto extraído entra na leitura, vale no arquivo <code>.txt</code> e <strong>pode ser anonimizado antes de qualquer envio à IA</strong>. Apenas as páginas que o OCR não conseguir ler (ex.: manuscrito, carimbo) são enviadas como imagem à IA do provedor configurado. Ajuste o <strong>máximo de páginas por documento</strong> conforme necessário.</li>
       <li><strong>Sigcrim.</strong> Configurações básicas do módulo criminal (matrícula do servidor, vara responsável), usadas pelo Painel Criminal.</li>
+      <li id="chave-fabrica"><strong>Execução arretada — Fábrica de Cálculos</strong> (a partir da versão 1.25.0). A chave de API da <strong>Fábrica de Cálculos do TRF3</strong>, usada pela <a href="#execucao-arretada">Execução arretada</a>. A chave é <strong>pessoal</strong>: gere a sua pelo link <em>solicitar chave de API</em>, no site da Fábrica, cole no campo e clique em <strong>Salvar</strong> e em <strong>Testar</strong>. Ao salvar, o Chrome pede a sua autorização para o pAIdegua acessar o endereço da Fábrica — só quem cadastra a chave concede esse acesso. A chave fica apenas neste navegador, cifrada, como a do provedor de IA. <strong>Remover</strong> apaga a chave e devolve a autorização.</li>
       <li><strong>Modelos de minuta.</strong> Botão <strong>Gerenciar modelos</strong> abre a página de opções, onde se aponta a pasta com os modelos. Veja a PARTE 6.</li>
       <li><strong>Backup.</strong> Botões <strong>Exportar configurações</strong> e <strong>Importar configurações</strong> (formato <code>paidegua-config-*.txt</code>, versão 5). O que entra e o que não entra está na seção <a href="#migracao-dev-cws">Migração</a>. Na importação, só são gravados os itens previstos: sessão, chave de API ou declaração de uso de IA que venham num arquivo são ignoradas.</li>
       <li><strong>Termos de uso e Governança (Res. CNJ 615/2025).</strong> Enquadramento da ferramenta como de baixo risco (Anexo BR4/BR8), obrigação de supervisão humana (art. 19, IV e art. 34), política de privacidade/anonimização (art. 30), trilha de auditoria (art. 19, §6º e art. 27 — em desenvolvimento) e identificação de conteúdo gerado com apoio de IA (art. 21).</li>
@@ -210,7 +213,8 @@
     <p>Os dois níveis conversam: desmarcar a <strong>funcionalidade inteira</strong> oculta todas as ações dela de uma vez, e o que você tinha escolhido ação por ação fica guardado — ao remarcar a funcionalidade, tudo volta exatamente como estava. Se você ocultar <em>todas</em> as ações de um módulo, o próprio botão dele some do painel, para não abrir um cartão vazio.</p>
     <p>Para desfazer suas escolhas, use o botão <strong>Restaurar padrão</strong> no fim da seção, ou marque de novo apenas o item desejado. A mudança vale <strong>na hora</strong>, mesmo com o PJe já aberto em outra aba — não é preciso recarregar a página.</p>
     <p><strong>Nem tudo vem marcado de fábrica.</strong> Uma funcionalidade recém-lançada, ainda em validação, pode chegar <em>desligada</em> — é o caso, nesta versão, da <a href="#conferencia-remessa">Conferência da remessa ao TRF5</a>. Ela aparece na lista com a explicação do motivo, e basta marcar para usar. O <strong>Restaurar padrão</strong> devolve exatamente esse estado de instalação — ou seja, volta a desligá-la.</p>
-    <p><strong>Mudança nesta versão.</strong> <a href="#conferir-autuacao">Conferir autuação</a> e <a href="#conferir-autuacao-lote">Conferir autuação em lote</a> vinham desligadas e agora <strong>chegam ligadas</strong>, depois de ensaiadas em produção com correção gravada e conferida nos autos. As duas <strong>gravam no PJe</strong> quando você manda — leia a seção de cada uma antes de usar. Se você já as havia desligado à mão, continuam desligadas: a atualização não remarca nada.</p>
+    <p><strong>Mudança na versão 1.25.0.</strong> Chegam ligadas duas funcionalidades novas, já ensaiadas em produção: o <a href="#topico-sintese">Tópico Síntese automático</a> (perfil Gabinete) e a <a href="#execucao-arretada">Execução arretada</a> (perfil Secretaria). As duas <strong>gravam no PJe</strong> quando você manda — a primeira, a ordem ao INSS no Tópico Síntese; a segunda, a juntada do cálculo e, se você pedir, o encaminhamento da tarefa para a RPV. Leia a seção de cada uma antes de usar.</p>
+    <p><strong>Na versão 1.21.0.</strong> <a href="#conferir-autuacao">Conferir autuação</a> e <a href="#conferir-autuacao-lote">Conferir autuação em lote</a> vinham desligadas e agora <strong>chegam ligadas</strong>, depois de ensaiadas em produção com correção gravada e conferida nos autos. As duas <strong>gravam no PJe</strong> quando você manda — leia a seção de cada uma antes de usar. Se você já as havia desligado à mão, continuam desligadas: a atualização não remarca nada.</p>
     <p>A aba <strong>Mais opções</strong> nunca pode ser ocultada: é por ela que você reativa o que escondeu. As ações básicas sobre o processo (Carregar Documentos, Resumir, Anonimizar, Minutar e as Minutas com modelo) também permanecem sempre visíveis.</p>
 
     <h3 id="popup-rodape">Rodapé do popup</h3>
@@ -225,8 +229,8 @@
     <table>
       <thead><tr><th>Perfil</th><th>Foco</th><th>Disponível em</th><th>Ferramentas principais</th></tr></thead>
       <tbody>
-        <tr><td><strong>Gabinete</strong> (padrão)</td><td>Análise dos autos e produção de minutas</td><td>Todos os graus</td><td>Resumir, Resumir em áudio, Anonimizar, Minutar (triagem automática), Minutas com modelo, Audiência pAIdegua, Fale com a Júlia, Análise preditiva da minuta</td></tr>
-        <tr><td><strong>Secretaria</strong></td><td>Triagem, pauta e organização</td><td>1º grau apenas</td><td>Analisar tarefas, Triagem em lote, Validação de cadastro, Painel de prevenção, Conferir autuação, Conferir autuação em lote, Conferência da remessa ao TRF5 <em>(desligada de fábrica)</em>, Central de Agrupadores, Analisar o processo, Inserir etiquetas mágicas, Audiência pAIdegua, Perícias pAIdegua, Central de Comunicação, Sigcrim</td></tr>
+        <tr><td><strong>Gabinete</strong> (padrão)</td><td>Análise dos autos e produção de minutas</td><td>Todos os graus</td><td>Resumir, Resumir em áudio, Anonimizar, Minutar (triagem automática), Minutas com modelo, Tópico Síntese automático, Audiência pAIdegua, Fale com a Júlia, Análise preditiva da minuta</td></tr>
+        <tr><td><strong>Secretaria</strong></td><td>Triagem, pauta e organização</td><td>1º grau apenas</td><td>Analisar tarefas, Triagem em lote, Validação de cadastro, Painel de prevenção, Conferir autuação, Conferir autuação em lote, Conferência da remessa ao TRF5 <em>(desligada de fábrica)</em>, Central de Agrupadores, Analisar o processo, Inserir etiquetas mágicas, Audiência pAIdegua, Perícias pAIdegua, Execução arretada (Faça o seu cálculo, Cálculos em lote), Central de Comunicação, Sigcrim</td></tr>
         <tr><td><strong>Gestão</strong></td><td>Visão da diretoria de secretaria</td><td>Todos os graus</td><td>Painel Gerencial, Prazos na Fita, Ordens PREVJUD, Painel de Perícias, Central de Agrupadores</td></tr>
       </tbody>
     </table>
@@ -303,6 +307,23 @@
     </ul>
     <p>Fluxo: no Painel do usuário do PJe, clique em <strong>Audiência pAIdegua</strong>, defina o período (data/hora), marque as tarefas e clique em <strong>Iniciar coleta</strong>. A pauta + resumos abrem no dashboard ao final.</p>
 
+    <h4 id="topico-sintese">Tópico Síntese automático</h4>
+    <p>Disponível no perfil <strong>Gabinete</strong>, em <strong>Ações do gabinete</strong>, a partir da versão 1.25.0. Na tarefa em que se minuta a sentença, preenche a ordem ao INSS do <strong>Tópico Síntese</strong> — o modal <em>Intimação INSS</em> — com os dados da própria minuta, em vez de o assessor redigitá-los.</p>
+    <p><strong>O que a extensão lê.</strong> A <strong>minuta que está no editor</strong>. Quando a sentença apenas homologa o acordo, sem descrever o benefício, lê a <strong>proposta de acordo do réu</strong> nos autos — a mesma leitura usada pela <a href="#execucao-arretada">Execução arretada</a>. Dali tira o tipo de ordem (conceder, restabelecer, revisar ou cessar), o serviço, a espécie, o NB, a DIB, a DCB, a DIP e o acréscimo de 25%. Quando o texto admite mais de uma espécie, o desempate é feito pelo <strong>assunto do processo</strong>.</p>
+    <ul>
+      <li><strong>DII.</strong> Vem do <strong>laudo pericial</strong> — o documento do tipo <em>Laudo Pericial</em>, como peça principal ou anexo. Como cada unidade usa uma quesitação diferente, a extensão procura a resposta pela redação, não pela posição do quesito. Quando o perito não dá a data mas aponta um evento (por exemplo, <em>desde o nascimento</em>), ou quando a data é deduzida do texto, a ficha avisa para você conferir.</li>
+      <li><strong>Representação.</strong> Se o polo ativo tiver procurador, tutor, curador ou representante, a ordem já vem com o tipo de representação e o CPF do representante, lido na Retificação da autuação ou na petição inicial. Representante de autor menor é tratado como tutor; de autor maior, como curador. O CPF é conferido pelos dígitos verificadores.</li>
+    </ul>
+    <p><strong>Como usar.</strong></p>
+    <ol>
+      <li>Com a tarefa aberta e a minuta no editor, clique em <strong>Tópico Síntese automático</strong>.</li>
+      <li>Abre, no chat, a <strong>ficha de conferência</strong> com todos os campos da ordem, editáveis. O que estiver faltando ou incoerente aparece como pendência, na hora.</li>
+      <li>Confira cada campo e marque <strong>Conferi</strong>. Se você alterar qualquer campo depois, a marcação sai e precisa ser feita de novo.</li>
+      <li>Clique em <strong>Preencher e adicionar no PJe</strong>. A extensão preenche o modal na ordem que o PJe exige, clica em <strong>Adicionar</strong> e confere que a ordem entrou no quadro do Tópico Síntese.</li>
+    </ol>
+    <blockquote><strong>A ordem fica gravada no processo</strong> — continua lá mesmo que você recarregue a página — e <strong>só vai ao INSS quando a sentença for assinada</strong>. A extensão marca sempre a caixa <em>Envio automático para implantação a partir da assinatura?</em>; a ficha avisa isso antes. Confira o quadro do Tópico Síntese antes de assinar.</blockquote>
+    <p><strong>Privacidade.</strong> Toda a leitura é feita por regras, na sua máquina. <strong>Nada é enviado a provedor de IA</strong>, e nenhum texto com nome de parte sai da página do PJe.</p>
+
     <h3 id="ferramentas-secretaria">5.4 Ferramentas do perfil Secretaria</h3>
 
     <h4 id="triagem-inteligente">Triagem Inteligente</h4>
@@ -350,6 +371,7 @@
     <p><strong>O ApoIA precisa estar disponível — e você decide se segue sem ele.</strong> O <strong>ApoIA</strong> é a base nacional do CNJ de onde a extensão obtém o texto das peças já digitalizadas. Com ele, cada processo leva poucos segundos. Sem ele, a extensão baixa e reconhece o texto de cada documento na sua própria máquina, um de cada vez — dezenas de segundos por processo, e a diferença num lote é de minutos para dezenas de minutos. Por isso a tela confere a disponibilidade antes de começar e, se ele não responder, oferece <strong>Seguir sem o ApoIA</strong>: a triagem funciona igual, só demora bem mais. A escolha é sua, mas ela é feita na largada, e não descoberta no meio do caminho. Se a sessão do ApoIA tiver expirado, a tela avisa: faça logout e login no ApoIA e tente de novo — a URL salva na <a href="#conexao-apoia">Conexão ApoIA</a> volta a valer.</p>
     <p><strong>A Júlia precisa estar conectada.</strong> A triagem em lote também verifica <strong>prevenção</strong>, consultando a base da Júlia, e por isso a conexão é conferida <em>antes</em> de a análise começar. Se a sessão não estiver ativa, aparece o botão <strong>Conectar à Júlia</strong> na própria tela de configuração: faça o login na <a href="#entrar-julia">janela que abrir</a> e a triagem recomeça sozinha. A verificação é feita na largada de propósito — a análise de cada processo consome leitura de documentos e IA, e não faria sentido descobrir a falta de conexão só no fim.</p>
     <p><strong>Quais documentos são lidos.</strong> Em cada processo, a triagem lê as peças juntadas pelo <strong>polo ativo</strong>, os <strong>documentos internos</strong> e a <strong>petição inicial</strong>, sempre à frente. As peças dos outros polos (a contestação, por exemplo) não entram — também quando o texto vem da base nacional, para o resultado não depender de o ApoIA estar conectado. É o mesmo recorte do <strong>Analisar o processo</strong>.</p>
+    <p><strong>Peça sob sigilo e identificação dos documentos.</strong> Peça que a base nacional marca como sigilosa não é lida, nem pela base nem pela leitura no seu computador, e aparece no card como <em>peça sob sigilo</em>, para você conferir no PDF. Quando a análise cita um documento, o número é o <strong>id do documento no PJe</strong>, o mesmo que você vê na árvore do processo. Se não for possível saber com segurança qual documento do PJe corresponde à peça lida na base, a análise a cita pelo tipo, pelo nome do arquivo e pela data, sem número. Os dados do processo usados na análise, como classe, valor da causa e data de ajuizamento, vêm sempre do cadastro do PJe, com ou sem o ApoIA.</p>
     <p><strong>No painel</strong>, cada processo traz o resumo, a prioridade, o veredito de cadastro, a prevenção e as etiquetas sugeridas por grupo. Você pode:</p>
     <ul>
       <li><strong>Conferir o resultado por critério</strong> — um clique em <em>Conferir resultado por critério</em> abre, sem sair do card, o checklist de admissibilidade item a item (atendido / não atendido), com a justificativa e a providência de cada ponto. Quando a inteligência artificial deixa de redigir o texto de uma providência, o card diz isso com todas as letras — <em>Sem providência redigida pela IA</em> —, listando o critério à parte, em vez de exibir o nome do critério como se fosse a frase do ato. Esses pontos ficam por sua conta redigir.</li>
@@ -470,6 +492,21 @@
       <li>Marque as tarefas e os peritos desejados; clique em <strong>Iniciar coleta</strong>. Acima da lista, a linha <strong>Selecionados</strong> mostra os peritos marcados, na ordem em que você os marcou, e o total de perícias da pauta. A linha continua à vista quando a busca esconde algum perito, e o <strong>×</strong> de cada nome o desmarca.</li>
       <li>Ao final, abre o dashboard com a pauta organizada por perito.</li>
     </ol>
+
+    <h4 id="execucao-arretada">Execução arretada</h4>
+    <p>Disponível no perfil <strong>Secretaria</strong>, a partir da versão 1.25.0. Faz o cálculo dos atrasados pela <strong>Fábrica de Cálculos do TRF3</strong>, junta o cálculo nos autos e, se você pedir, encaminha a tarefa para a elaboração da RPV. O botão <strong>Execução arretada</strong> abre um cartão com duas ações: <strong>Faça o seu cálculo</strong>, com um processo aberto, e <strong>Cálculos em lote</strong>, no Painel do usuário.</p>
+    <p><strong>Antes do primeiro uso</strong>, cadastre a sua chave pessoal da Fábrica no popup, em <a href="#chave-fabrica">Geral → Execução arretada — Fábrica de Cálculos</a>.</p>
+    <p><strong>Faça o seu cálculo.</strong></p>
+    <ol>
+      <li>Com os autos abertos, clique em <strong>Execução arretada → Faça o seu cálculo</strong>.</li>
+      <li>A extensão lê nos autos a sentença ou a proposta de acordo homologada, a notificação de cumprimento do INSS, o Tópico Síntese, as Informações Prestadas da CEAB-DJ, a citação do INSS na aba Expedientes e os dados do processo. Quando as Informações Prestadas vêm em imagem, o texto é reconhecido <strong>na sua máquina</strong>, sem IA.</li>
+      <li>Abre a página do cálculo com a <strong>ficha</strong>: espécie, DIB, DIP, RMI, DCB, percentual do acordo e os critérios de correção, juros e Selic. Confira tudo — o que veio de texto reconhecido em imagem precisa ser conferido antes de calcular. Ao escolher a espécie à mão, a correção, os juros e a Selic passam para o padrão do ramo, assistencial ou previdenciário.</li>
+      <li>Clique em calcular. A Fábrica devolve o demonstrativo.</li>
+      <li>Para <strong>juntar</strong>, a extensão abre <em>Juntar documentos</em> na aba dos autos, escolhe o tipo <em>Cálculo Judicial</em>, anexa o demonstrativo e aciona <strong>Assinar documento(s)</strong>. A assinatura segue o fluxo do próprio PJe, com a sua credencial, e só é dada como feita quando a extensão confirma o documento novo nos autos.</li>
+      <li>Se quiser, use o botão de <strong>encaminhar para a RPV</strong>: a extensão aciona as saídas do fluxo do processo, <em>Analisar - Secretaria</em> e, em seguida, <em>RPV-PRC - Elaborar</em>. Se alguma saída não aparecer, ela para e diz onde o processo ficou.</li>
+    </ol>
+    <p><strong>Cálculos em lote.</strong> No Painel do usuário, clique em <strong>Execução arretada → Cálculos em lote</strong>. Escolha as <strong>tarefas de elaboração de cálculo</strong> ou cole uma <a href="#lista-processos">lista de processos</a>, de até 200. A extensão lê e calcula <strong>um processo por vez</strong>, abrindo os autos de cada um numa aba auxiliar, numa janela própria do lote — <strong>sem escrever nada no PJe nessa etapa</strong>. Ao final, abre a <strong>tabela de revisão</strong>: confira e aprove os cálculos. A juntada e o encaminhamento para a RPV só acontecem nos processos que você aprovou, também um por vez. Você pode parar o lote entre um processo e outro; mantenha a janela do lote aberta até o fim.</p>
+    <blockquote><strong>O que vai à Fábrica:</strong> só a ficha do cálculo — datas, valores e critérios. <strong>Nenhum nome de parte, CPF ou texto dos autos é enviado.</strong> O preenchimento da RPV no sistema JD ainda não faz parte desta versão.</blockquote>
 
     <h4 id="comunicacao">Central de Comunicação</h4>
     <p>Disponível apenas em 1º grau. Automatiza cobranças a peritos (mensagem) e ao CEAB (e-mail), com base nos processos de perícia em atraso.</p>
