@@ -81,7 +81,7 @@
 
   <main class="manual-content">
     <h1>Manual de Instalação e Uso</h1>
-    <p class="manual-meta">Versão <strong>1.25.0</strong> · Atualizado em 09/11/2026 · Mantido pelo <strong>Inovajus / JFCE</strong></p>
+    <p class="manual-meta">Versão <strong>1.26.0</strong> · Atualizado em 10/11/2026 · Mantido pelo <strong>Inovajus / JFCE</strong></p>
     <p class="manual-lede">Plataforma de apoio à atividade e à gestão judicial no PJe — triagem inteligente, validação de cadastro, Central de Agrupadores, minutas com IA, Tópico Síntese automático, cálculo da execução pela Fábrica de Cálculos do TRF3 (Execução arretada), pauta de audiência e perícia, controle criminal (Sigcrim), Central de Comunicação, Painel Gerencial, Prazos na Fita, Ordens PREVJUD, Painel de Perícias, pesquisa de jurisprudência com a Júlia, Consultor de Fluxos e chat livre sobre os autos. Operação em conformidade com a LGPD e a Resolução CNJ 615/2025.</p>
 
     <h2 id="parte-1-instalacao">PARTE 1 — Instalação</h2>
@@ -321,7 +321,7 @@
       <li>Confira cada campo e marque <strong>Conferi</strong>. Se você alterar qualquer campo depois, a marcação sai e precisa ser feita de novo.</li>
       <li>Clique em <strong>Preencher e adicionar no PJe</strong>. A extensão preenche o modal na ordem que o PJe exige, clica em <strong>Adicionar</strong> e confere que a ordem entrou no quadro do Tópico Síntese.</li>
     </ol>
-    <blockquote><strong>A ordem fica gravada no processo</strong> — continua lá mesmo que você recarregue a página — e <strong>só vai ao INSS quando a sentença for assinada</strong>. A extensão marca sempre a caixa <em>Envio automático para implantação a partir da assinatura?</em>; a ficha avisa isso antes. Confira o quadro do Tópico Síntese antes de assinar.</blockquote>
+    <blockquote><strong>A ordem fica gravada no processo</strong> — continua lá mesmo que você recarregue a página — e <strong>só vai ao INSS quando a sentença for assinada</strong>. A extensão marca a caixa <em>Envio automático para implantação a partir da assinatura?</em>; a ficha avisa isso antes. Na tarefa <em>[PREVJUD] Preencher tópico síntese</em>, que não tem essa caixa, a ordem é gravada normalmente e a extensão informa que a caixa não foi marcada por não existir na tarefa. Confira o quadro do Tópico Síntese antes de assinar.</blockquote>
     <p><strong>Privacidade.</strong> Toda a leitura é feita por regras, na sua máquina. <strong>Nada é enviado a provedor de IA</strong>, e nenhum texto com nome de parte sai da página do PJe.</p>
 
     <h3 id="ferramentas-secretaria">5.4 Ferramentas do perfil Secretaria</h3>
@@ -501,12 +501,19 @@
       <li>Com os autos abertos, clique em <strong>Execução arretada → Faça o seu cálculo</strong>.</li>
       <li>A extensão lê nos autos a sentença ou a proposta de acordo homologada, a notificação de cumprimento do INSS, o Tópico Síntese, as Informações Prestadas da CEAB-DJ, a citação do INSS na aba Expedientes e os dados do processo. Quando as Informações Prestadas vêm em imagem, o texto é reconhecido <strong>na sua máquina</strong>, sem IA.</li>
       <li>Abre a página do cálculo com a <strong>ficha</strong>: espécie, DIB, DIP, RMI, DCB, percentual do acordo e os critérios de correção, juros e Selic. Confira tudo — o que veio de texto reconhecido em imagem precisa ser conferido antes de calcular. Ao escolher a espécie à mão, a correção, os juros e a Selic passam para o padrão do ramo, assistencial ou previdenciário.</li>
-      <li>Clique em calcular. A Fábrica devolve o demonstrativo.</li>
+      <li>Se houver, preencha <strong>Outras verbas e deduções</strong> (a partir da versão 1.26.0):
+        <ul>
+          <li><strong>Outros débitos</strong> — multa por descumprimento da obrigação de fazer e outros valores fixados nos autos: descrição, data, valor e a data de início dos juros (vazia, os juros correm desde a data do valor). Marque <em>Entra na base dos honorários</em> só se a decisão mandar os honorários incidirem também sobre o débito. O critério de correção e de juros dos débitos é escolhido na própria seção; o padrão é o das <strong>condenatórias em geral</strong>. A descrição sai no demonstrativo: não escreva nela nome de parte.</li>
+          <li><strong>Benefícios recebidos</strong> — benefício inacumulável já pago no período das diferenças: espécie, NB, DIB, DCB e RMI. A Fábrica evolui o benefício, com o 13º proporcional, e o abate mês a mês dos atrasados. Por padrão, a base dos honorários só perde o que foi recebido <strong>até a citação</strong> (Tema 1.050 do STJ); marque a opção da seção para descontar dela todo o recebido.</li>
+        </ul>
+      </li>
+      <li>Clique em calcular. A Fábrica devolve o demonstrativo. Havendo outras verbas, o resultado mostra os outros débitos atualizados, já somados ao total, e quanto foi abatido de benefícios recebidos.</li>
       <li>Para <strong>juntar</strong>, a extensão abre <em>Juntar documentos</em> na aba dos autos, escolhe o tipo <em>Cálculo Judicial</em>, anexa o demonstrativo e aciona <strong>Assinar documento(s)</strong>. A assinatura segue o fluxo do próprio PJe, com a sua credencial, e só é dada como feita quando a extensão confirma o documento novo nos autos.</li>
       <li>Se quiser, use o botão de <strong>encaminhar para a RPV</strong>: a extensão aciona as saídas do fluxo do processo, <em>Analisar - Secretaria</em> e, em seguida, <em>RPV-PRC - Elaborar</em>. Se alguma saída não aparecer, ela para e diz onde o processo ficou.</li>
     </ol>
     <p><strong>Cálculos em lote.</strong> No Painel do usuário, clique em <strong>Execução arretada → Cálculos em lote</strong>. Escolha as <strong>tarefas de elaboração de cálculo</strong> ou cole uma <a href="#lista-processos">lista de processos</a>, de até 200. A extensão lê e calcula <strong>um processo por vez</strong>, abrindo os autos de cada um numa aba auxiliar, numa janela própria do lote — <strong>sem escrever nada no PJe nessa etapa</strong>. Ao final, abre a <strong>tabela de revisão</strong>: confira e aprove os cálculos. A juntada e o encaminhamento para a RPV só acontecem nos processos que você aprovou, também um por vez. Você pode parar o lote entre um processo e outro; mantenha a janela do lote aberta até o fim.</p>
-    <blockquote><strong>O que vai à Fábrica:</strong> só a ficha do cálculo — datas, valores e critérios. <strong>Nenhum nome de parte, CPF ou texto dos autos é enviado.</strong> O preenchimento da RPV no sistema JD ainda não faz parte desta versão.</blockquote>
+    <p>Na tabela, <strong>Abrir ficha</strong> mostra a ficha de um processo para corrigir e recalcular — inclusive para incluir outras verbas e deduções. A partir da versão 1.26.0, essa ficha também tem <strong>Anexar no processo</strong> e <strong>Anexar e enviar para RPV</strong>: a juntada segue a mesma rotina do lote, só para aquele processo, com o demonstrativo que está na tela. Os botões se habilitam depois que a linha do lote é atualizada com o cálculo, e a juntada pela ficha não é aceita enquanto o lote ainda estiver lendo e calculando.</p>
+    <blockquote><strong>O que vai à Fábrica:</strong> só a ficha do cálculo — datas, valores, critérios e as outras verbas e deduções que você digitar. <strong>A extensão não envia nome de parte, CPF nem texto dos autos.</strong> O preenchimento da RPV no sistema JD ainda não faz parte desta versão.</blockquote>
 
     <h4 id="comunicacao">Central de Comunicação</h4>
     <p>Disponível apenas em 1º grau. Automatiza cobranças a peritos (mensagem) e ao CEAB (e-mail), com base nos processos de perícia em atraso.</p>
