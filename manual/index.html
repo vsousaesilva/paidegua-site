@@ -81,7 +81,7 @@
 
   <main class="manual-content">
     <h1>Manual de Instalação e Uso</h1>
-    <p class="manual-meta">Versão <strong>1.26.0</strong> · Atualizado em 10/11/2026 · Mantido pelo <strong>Inovajus / JFCE</strong></p>
+    <p class="manual-meta">Versão <strong>1.26.1</strong> · Atualizado em 11/11/2026 · Mantido pelo <strong>Inovajus / JFCE</strong></p>
     <p class="manual-lede">Plataforma de apoio à atividade e à gestão judicial no PJe — triagem inteligente, validação de cadastro, Central de Agrupadores, minutas com IA, Tópico Síntese automático, cálculo da execução pela Fábrica de Cálculos do TRF3 (Execução arretada), pauta de audiência e perícia, controle criminal (Sigcrim), Central de Comunicação, Painel Gerencial, Prazos na Fita, Ordens PREVJUD, Painel de Perícias, pesquisa de jurisprudência com a Júlia, Consultor de Fluxos e chat livre sobre os autos. Operação em conformidade com a LGPD e a Resolução CNJ 615/2025.</p>
 
     <h2 id="parte-1-instalacao">PARTE 1 — Instalação</h2>
@@ -184,7 +184,7 @@
       <li>Nome.</li>
       <li>Gênero (para concordância nos textos gerados).</li>
       <li>Profissão (autocomplete multisseleção — por exemplo, médico psiquiatra, médico ortopedista, assistente social).</li>
-      <li>Etiquetas PJe associadas a esse perito (sugeridas a partir do catálogo de etiquetas).</li>
+      <li>Etiquetas PJe associadas a esse perito (sugeridas a partir do catálogo de etiquetas). Ao buscar uma subetiqueta, a <strong>etiqueta principal</strong> aparece logo acima dela. Cadastrar a principal basta: ela cobre as subetiquetas na pauta. Se uma etiqueta criada há pouco no PJe não aparecer, clique em <strong>Atualizar catálogo do PJe</strong>, logo abaixo do campo.</li>
       <li>Assuntos preferenciais (chips reordenáveis, definem prioridade).</li>
     </ul>
     <p>Use <strong>Novo perito</strong> para abrir o formulário, <strong>Salvar</strong> para persistir. A lista é usada pelo painel de pauta de perícia e pela Central de Comunicação (cobrança automática).</p>
@@ -321,6 +321,8 @@
       <li>Confira cada campo e marque <strong>Conferi</strong>. Se você alterar qualquer campo depois, a marcação sai e precisa ser feita de novo.</li>
       <li>Clique em <strong>Preencher e adicionar no PJe</strong>. A extensão preenche o modal na ordem que o PJe exige, clica em <strong>Adicionar</strong> e confere que a ordem entrou no quadro do Tópico Síntese.</li>
     </ol>
+    <p><strong>DIP.</strong> Quando o texto traz a DIP com data certa, a ficha já vem com a data e com a caixa <em>Primeiro dia do mês da expedição da ordem judicial</em> <strong>desmarcada</strong>, inclusive quando o tipo de ordem fica para você escolher. A caixa só vem marcada quando o texto não fixa a data; nesse caso, a ficha avisa.</p>
+    <p><strong>Tarefa aberta dentro dos autos (PJe+r).</strong> O quadro do Tópico Síntese precisa estar <strong>à vista</strong>. Se a tarefa estiver numa aba dentro dos autos e outra aba estiver à frente, a extensão para antes de tocar em qualquer campo e pede para você clicar na aba <strong>Tarefa</strong>. Deixe-a à vista e tente de novo.</p>
     <blockquote><strong>A ordem fica gravada no processo</strong> — continua lá mesmo que você recarregue a página — e <strong>só vai ao INSS quando a sentença for assinada</strong>. A extensão marca a caixa <em>Envio automático para implantação a partir da assinatura?</em>; a ficha avisa isso antes. Na tarefa <em>[PREVJUD] Preencher tópico síntese</em>, que não tem essa caixa, a ordem é gravada normalmente e a extensão informa que a caixa não foi marcada por não existir na tarefa. Confira o quadro do Tópico Síntese antes de assinar.</blockquote>
     <p><strong>Privacidade.</strong> Toda a leitura é feita por regras, na sua máquina. <strong>Nada é enviado a provedor de IA</strong>, e nenhum texto com nome de parte sai da página do PJe.</p>
 
@@ -492,6 +494,7 @@
       <li>Marque as tarefas e os peritos desejados; clique em <strong>Iniciar coleta</strong>. Acima da lista, a linha <strong>Selecionados</strong> mostra os peritos marcados, na ordem em que você os marcou, e o total de perícias da pauta. A linha continua à vista quando a busca esconde algum perito, e o <strong>×</strong> de cada nome o desmarca.</li>
       <li>Ao final, abre o dashboard com a pauta organizada por perito.</li>
     </ol>
+    <p><strong>Subetiquetas.</strong> O perito cadastrado com a etiqueta principal recebe também os processos marcados com as <strong>subetiquetas</strong> dela (por exemplo, <em>Principal &gt; Subetiqueta</em>). Disponível a partir da versão 1.26.1.</p>
 
     <h4 id="execucao-arretada">Execução arretada</h4>
     <p>Disponível no perfil <strong>Secretaria</strong>, a partir da versão 1.25.0. Faz o cálculo dos atrasados pela <strong>Fábrica de Cálculos do TRF3</strong>, junta o cálculo nos autos e, se você pedir, encaminha a tarefa para a elaboração da RPV. O botão <strong>Execução arretada</strong> abre um cartão com duas ações: <strong>Faça o seu cálculo</strong>, com um processo aberto, e <strong>Cálculos em lote</strong>, no Painel do usuário.</p>
