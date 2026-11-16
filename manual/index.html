@@ -65,6 +65,7 @@
           <li><a href="#conferencia-remessa">— Conferência da remessa ao TRF5</a></li>
           <li><a href="#central-agrupadores">— Central de Agrupadores</a></li>
           <li><a href="#execucao-arretada">— Execução arretada</a></li>
+          <li><a href="#requisitorio-facil">— Requisitório Fácil</a></li>
           <li><a href="#ferramentas-gestao">5.5 Gestão</a></li>
           <li><a href="#fale-com-julia">5.6 Fale com a Júlia</a></li>
           <li><a href="#analise-preditiva">— Análise preditiva da minuta</a></li>
@@ -81,8 +82,8 @@
 
   <main class="manual-content">
     <h1>Manual de Instalação e Uso</h1>
-    <p class="manual-meta">Versão <strong>1.26.1</strong> · Atualizado em 11/11/2026 · Mantido pelo <strong>Inovajus / JFCE</strong></p>
-    <p class="manual-lede">Plataforma de apoio à atividade e à gestão judicial no PJe — triagem inteligente, validação de cadastro, Central de Agrupadores, minutas com IA, Tópico Síntese automático, cálculo da execução pela Fábrica de Cálculos do TRF3 (Execução arretada), pauta de audiência e perícia, controle criminal (Sigcrim), Central de Comunicação, Painel Gerencial, Prazos na Fita, Ordens PREVJUD, Painel de Perícias, pesquisa de jurisprudência com a Júlia, Consultor de Fluxos e chat livre sobre os autos. Operação em conformidade com a LGPD e a Resolução CNJ 615/2025.</p>
+    <p class="manual-meta">Versão <strong>1.27.2</strong> · Atualizado em 16/11/2026 · Mantido pelo <strong>Inovajus / JFCE</strong></p>
+    <p class="manual-lede">Plataforma de apoio à atividade e à gestão judicial no PJe — triagem inteligente, validação de cadastro, Central de Agrupadores, minutas com IA, Tópico Síntese automático, cálculo da execução pela Fábrica de Cálculos do TRF3 (Execução arretada), preenchimento da RPV no JD do TRF5 (Requisitório Fácil), pauta de audiência e perícia, controle criminal (Sigcrim), Central de Comunicação, Painel Gerencial, Prazos na Fita, Ordens PREVJUD, Painel de Perícias, pesquisa de jurisprudência com a Júlia, Consultor de Fluxos e chat livre sobre os autos. Operação em conformidade com a LGPD e a Resolução CNJ 615/2025.</p>
 
     <h2 id="parte-1-instalacao">PARTE 1 — Instalação</h2>
 
@@ -354,7 +355,7 @@
     <p>Botão no grupo Painel da Triagem Inteligente. Faz, de uma vez, a triagem completa dos processos das tarefas de análise inicial: para cada processo, um <strong>resumo</strong> (pedido, causa, situação e próximo passo), a <strong>prioridade</strong>, a conferência de <strong>cadastro</strong>, as <strong>etiquetas</strong> sugeridas por grupo e um <strong>lembrete</strong> — tudo num painel para você revisar e aplicar.</p>
     <p><strong>Tela de configuração.</strong> Ao clicar, abre-se antes uma tela para você <strong>recortar o escopo</strong>. O primeiro cartão, <strong>Quais processos</strong>, oferece duas formas de escolher:</p>
     <ul>
-      <li><strong>Pelas tarefas de triagem</strong> — como sempre, com os filtros descritos abaixo.</li>
+      <li><strong>Pelas tarefas selecionadas</strong> — como sempre, com os filtros descritos abaixo.</li>
       <li id="lista-processos"><strong>Por uma lista de processos</strong> (a partir da versão 1.24.0) — cole os números, um por linha ou misturados a outro texto. A tela os converte na hora para a máscara oficial do CNJ, remove os repetidos e aponta os números com dígito verificador inválido, que não são consultados. O limite é de <strong>200 processos por execução</strong>, dito na própria tela: acima dele, o botão de iniciar fica travado até você reduzir a lista. Vale para processos de <strong>qualquer tarefa do seu painel</strong>, não só das de triagem — por exemplo, para validar o cadastro de processos que já seguiram adiante. Nesse modo, competência, tarefas e filtros não se aplicam e ficam ocultos. Os números que o PJe não localizar no seu painel ficam fora da ação; o andamento informa quais foram e por quê, e na Triagem em lote eles aparecem também no aviso final do painel lateral.</li>
     </ul>
     <p>No modo pelas tarefas, o recorte é este:</p>
@@ -443,7 +444,7 @@
     <h4 id="conferir-autuacao">Conferir autuação</h4>
     <p>Disponível no perfil <strong>Secretaria</strong>, com um processo aberto. Lê a <strong>petição inicial</strong> nos autos, confronta com a classe judicial e os assuntos cadastrados e aponta o que não bate, com fundamento. Se você mandar, <strong>grava a correção</strong> na tela de Retificação da Autuação — a mesma que a secretaria usa à mão.</p>
     <p>O programa nunca inventa classe nem assunto: escolhe entre os que existem no catálogo oficial daquele processo e confere na própria tela do PJe antes de escrever. Confere também um eixo de competência — a alçada do Juizado Especial Federal — e, quando o caso é de redistribuição, <strong>descreve o ato e para</strong>: redistribuir é ato do servidor.</p>
-    <p><strong>Como usar.</strong> Com o processo aberto, clique em <strong>Conferir autuação</strong>. A extensão lê a inicial e mostra o que foi conferido, o que não bate e a correção proposta. Se houver algo a gravar, ela já <strong>simula sozinha</strong> na tela do PJe — sem gravar nada — e só libera o botão <strong>Aplicar no PJe</strong> quando a simulação não encontra pendência. O fundamento de cada apontamento e o caminho completo do assunto na tabela do CNJ ficam a um clique, em <em>Fundamento</em> e <em>Caminho na TPU</em>.</p>
+    <p><strong>Como usar.</strong> Com o processo aberto, clique em <strong>Conferir autuação</strong>. A extensão lê a inicial e mostra o que foi conferido, o que não bate e a correção proposta. Se houver algo a gravar, o botão <strong>Aplicar no PJe</strong> grava direto na tela da Retificação da Autuação e mostra, em cada operação, se deu certo ou o erro que o PJe apontou. A partir da versão 1.27.0 não há mais a etapa de simulação. <strong>Tentar de novo</strong> só fica disponível quando nada foi gravado, para não repetir a correção sobre um cadastro já alterado. O fundamento de cada apontamento e o caminho completo do assunto na tabela do CNJ ficam a um clique, em <em>Fundamento</em> e <em>Caminho na TPU</em>.</p>
     <p>A extensão só propõe assuntos que o próprio PJe deixa selecionar, e não aceita manter um assunto genérico quando existe opção mais específica: nesse caso, mostra as opções e deixa a escolha com você. Quando nenhuma operação pode ser feita pela extensão, a bolha diz isso.</p>
     <p><strong>Só no JEF, por ora</strong> (a partir da versão 1.23.0). As regras de conferência existem apenas para os processos do <strong>JEF</strong>, conforme o campo <em>Competência</em> do PJe. Nos de outra competência, ou sem competência no campo, a bolha mostra <em>Competência sem regras de conferência</em> e para: não lê a peça nem consulta a IA.</p>
     <p><strong>Vem ligada a partir da versão 1.21.0</strong>, depois de ensaiada em produção com correção de assunto gravada e conferida nos autos. A troca de <em>classe</em> ainda não foi exercitada em produção. <strong>Confira na tela de Retificação da Autuação cada correção que você mandar aplicar.</strong> Se preferir não tê-la à mão, desligue em <strong>Mais opções → Funcionalidades da extensão</strong>.</p>
@@ -451,7 +452,7 @@
     <h4 id="conferir-autuacao-lote">Conferir autuação em lote</h4>
     <p>Disponível no perfil <strong>Secretaria</strong>, dentro da <strong>Triagem Inteligente</strong>. Faz o mesmo que a conferência individual, mas percorrendo uma tarefa inteira: processo a processo, lê a peça, confronta classe e assuntos com o cadastro e mostra as divergências numa lista única.</p>
     <p><strong>Antes de varrer</strong>, abre uma tela de configuração: competência, tarefas, período e <strong>quantidade</strong> — ou uma <a href="#lista-processos">lista de processos</a>, de até 200. Use o limite — cada processo custa a leitura de uma peça e duas chamadas de IA, então varrer uma tarefa grande inteira é caro e demorado. Como as regras existem só para o <strong>JEF</strong>, a tela avisa antes de iniciar se o JEF estiver desmarcado. Os processos de outras competências entram na lista com o selo <em>Competência sem regras de conferência</em>, sem leitura de peça nem IA, e o relatório abre no filtro <em>Todos</em>.</p>
-    <p><strong>Como a escrita funciona.</strong> Nada é gravado em bloco. Cada linha tem o seu <strong>Aplicar no PJe</strong>, que só se habilita depois de a extensão simular aquela operação na tela do PJe e não encontrar pendência — a mesma trava da conferência individual. E só <strong>uma escrita roda por vez</strong>: enquanto uma está em curso, os outros botões ficam travados, com o motivo na tela.</p>
+    <p><strong>Como a escrita funciona.</strong> Nada é gravado em bloco. Cada linha tem o seu <strong>Aplicar no PJe</strong>, que grava direto, como na conferência individual, e mostra o resultado de cada operação na própria linha. Antes, o relatório pede a sua confirmação para aquele processo. A partir da versão 1.27.0 não há mais a etapa de simulação. E só <strong>uma escrita roda por vez</strong>: enquanto uma está em curso, os outros botões ficam travados, com o motivo na tela.</p>
     <p><strong>Vem ligada a partir da versão 1.21.0</strong>, depois de ensaiada em produção com poucos processos, correção gravada e conferida nos autos. Como na individual, a troca de classe ainda não foi exercitada. <strong>Confira nos autos cada correção aplicada.</strong></p>
 
     <h4 id="conferencia-remessa">Conferência da remessa ao TRF5 <em>(desligada de fábrica)</em></h4>
@@ -497,13 +498,20 @@
     <p><strong>Subetiquetas.</strong> O perito cadastrado com a etiqueta principal recebe também os processos marcados com as <strong>subetiquetas</strong> dela (por exemplo, <em>Principal &gt; Subetiqueta</em>). Disponível a partir da versão 1.26.1.</p>
 
     <h4 id="execucao-arretada">Execução arretada</h4>
-    <p>Disponível no perfil <strong>Secretaria</strong>, a partir da versão 1.25.0. Faz o cálculo dos atrasados pela <strong>Fábrica de Cálculos do TRF3</strong>, junta o cálculo nos autos e, se você pedir, encaminha a tarefa para a elaboração da RPV. O botão <strong>Execução arretada</strong> abre um cartão com duas ações: <strong>Faça o seu cálculo</strong>, com um processo aberto, e <strong>Cálculos em lote</strong>, no Painel do usuário.</p>
+    <p>Disponível no perfil <strong>Secretaria</strong>, a partir da versão 1.25.0. Faz o cálculo dos atrasados pela <strong>Fábrica de Cálculos do TRF3</strong>, junta o cálculo nos autos e, se você pedir, encaminha a tarefa para a elaboração da RPV. O botão <strong>Execução arretada</strong> abre um cartão com as ações <strong>Faça o seu cálculo</strong> e <a href="#requisitorio-facil"><strong>Requisitório Fácil</strong></a>, com um processo aberto, e <strong>Cálculos em lote</strong>, no Painel do usuário. A partir da versão 1.27.1, todas vêm ligadas; quem não quiser vê-las pode escondê-las em <strong>Mais opções → Funcionalidades da extensão</strong>.</p>
     <p><strong>Antes do primeiro uso</strong>, cadastre a sua chave pessoal da Fábrica no popup, em <a href="#chave-fabrica">Geral → Execução arretada — Fábrica de Cálculos</a>.</p>
     <p><strong>Faça o seu cálculo.</strong></p>
     <ol>
       <li>Com os autos abertos, clique em <strong>Execução arretada → Faça o seu cálculo</strong>.</li>
       <li>A extensão lê nos autos a sentença ou a proposta de acordo homologada, a notificação de cumprimento do INSS, o Tópico Síntese, as Informações Prestadas da CEAB-DJ, a citação do INSS na aba Expedientes e os dados do processo. Quando as Informações Prestadas vêm em imagem, o texto é reconhecido <strong>na sua máquina</strong>, sem IA.</li>
-      <li>Abre a página do cálculo com a <strong>ficha</strong>: espécie, DIB, DIP, RMI, DCB, percentual do acordo e os critérios de correção, juros e Selic. Confira tudo — o que veio de texto reconhecido em imagem precisa ser conferido antes de calcular. Ao escolher a espécie à mão, a correção, os juros e a Selic passam para o padrão do ramo, assistencial ou previdenciário.</li>
+      <li>Abre a página do cálculo com a <strong>ficha</strong>: espécie, DIB, DIP, RMI, DCB, percentual do acordo e os critérios de correção, juros e Selic. Confira tudo — o que veio de texto reconhecido em imagem precisa ser conferido antes de calcular. Ao escolher a espécie à mão, a correção, os juros e a Selic passam para o padrão do ramo, assistencial ou previdenciário. A partir da versão 1.27.0, o cálculo é atualizado até o <strong>mês corrente</strong>; se a Fábrica ainda não tiver o índice do mês, a extensão usa o mês anterior e avisa.</li>
+      <li>Em <strong>Honorários</strong>, a partir da versão 1.27.0, dá para dividir a verba entre <strong>vários advogados</strong>, com <strong>Adicionar advogado</strong>:
+        <ul>
+          <li><strong>Sucumbência</strong> — a Fábrica calcula a verba inteira e a extensão a reparte pela cota de cada advogado. Com as cotas em branco, a divisão é em partes iguais.</li>
+          <li><strong>Contratuais</strong> — um advogado por linha, cada um com o seu percentual sobre o crédito do autor (contrato de 30% com dois advogados em partes iguais: 15 e 15). À Fábrica vai a soma dos percentuais.</li>
+        </ul>
+        A divisão aparece no resultado e em <strong>Copiar valores</strong>, mas <strong>não</strong> sai no demonstrativo em PDF da Fábrica, que traz só os totais. A identificação dos advogados é opcional e fica só na sua tela.
+      </li>
       <li>Se houver, preencha <strong>Outras verbas e deduções</strong> (a partir da versão 1.26.0):
         <ul>
           <li><strong>Outros débitos</strong> — multa por descumprimento da obrigação de fazer e outros valores fixados nos autos: descrição, data, valor e a data de início dos juros (vazia, os juros correm desde a data do valor). Marque <em>Entra na base dos honorários</em> só se a decisão mandar os honorários incidirem também sobre o débito. O critério de correção e de juros dos débitos é escolhido na própria seção; o padrão é o das <strong>condenatórias em geral</strong>. A descrição sai no demonstrativo: não escreva nela nome de parte.</li>
@@ -516,7 +524,36 @@
     </ol>
     <p><strong>Cálculos em lote.</strong> No Painel do usuário, clique em <strong>Execução arretada → Cálculos em lote</strong>. Escolha as <strong>tarefas de elaboração de cálculo</strong> ou cole uma <a href="#lista-processos">lista de processos</a>, de até 200. A extensão lê e calcula <strong>um processo por vez</strong>, abrindo os autos de cada um numa aba auxiliar, numa janela própria do lote — <strong>sem escrever nada no PJe nessa etapa</strong>. Ao final, abre a <strong>tabela de revisão</strong>: confira e aprove os cálculos. A juntada e o encaminhamento para a RPV só acontecem nos processos que você aprovou, também um por vez. Você pode parar o lote entre um processo e outro; mantenha a janela do lote aberta até o fim.</p>
     <p>Na tabela, <strong>Abrir ficha</strong> mostra a ficha de um processo para corrigir e recalcular — inclusive para incluir outras verbas e deduções. A partir da versão 1.26.0, essa ficha também tem <strong>Anexar no processo</strong> e <strong>Anexar e enviar para RPV</strong>: a juntada segue a mesma rotina do lote, só para aquele processo, com o demonstrativo que está na tela. Os botões se habilitam depois que a linha do lote é atualizada com o cálculo, e a juntada pela ficha não é aceita enquanto o lote ainda estiver lendo e calculando.</p>
-    <blockquote><strong>O que vai à Fábrica:</strong> só a ficha do cálculo — datas, valores, critérios e as outras verbas e deduções que você digitar. <strong>A extensão não envia nome de parte, CPF nem texto dos autos.</strong> O preenchimento da RPV no sistema JD ainda não faz parte desta versão.</blockquote>
+    <blockquote><strong>O que vai à Fábrica:</strong> só a ficha do cálculo — datas, valores, critérios, as outras verbas e deduções que você digitar e a soma dos percentuais contratuais. <strong>A extensão não envia nome de parte, CPF nem texto dos autos.</strong> Depois do cálculo, a RPV pode ser preenchida no JD pelo <a href="#requisitorio-facil">Requisitório Fácil</a>.</blockquote>
+
+    <h4 id="requisitorio-facil">Requisitório Fácil (Cassandra + pAIdegua)</h4>
+    <p>Disponível no perfil <strong>Secretaria</strong>, a partir da versão 1.27.0 (ligado de fábrica a partir da 1.27.1). Em parceria com a <strong>Cassandra</strong>, da Justiça Federal em Alagoas, preenche a <strong>RPV no sistema JD do TRF5</strong> com os valores do cálculo. O JD importa sozinho, do PJe, os dados do processo e das partes; o pAIdegua preenche o resto: datas e valores.</p>
+    <p><strong>Onde está.</strong> No cartão da <a href="#execucao-arretada">Execução arretada</a>, com o processo aberto, e na ficha do cálculo — individual ou aberta pelo lote —, logo depois de calcular.</p>
+    <p><strong>De onde vêm os valores</strong> (a primeira opção disponível já vem marcada):</p>
+    <ul>
+      <li>o cálculo da Fábrica feito pelo pAIdegua — o cálculo <strong>juntado aos autos</strong> tem prioridade;</li>
+      <li>a <strong>planilha de cálculo juntada aos autos</strong>, lida na sua máquina, sem IA. Modelos reconhecidos: Fábrica de Cálculos (impressa), Conta Fácil Prev, Projef Web, JEF Conta, memória de cálculo do advogado e cálculo da Contadoria da SJCE. Só números e datas saem da aba dos autos;</li>
+      <li>o preenchimento à mão.</li>
+    </ul>
+    <p><strong>Tudo aparece na tela antes de ir ao JD, e tudo pode ser editado.</strong> Cada valor mostra de onde veio; o que não pôde ser lido fica em vermelho, para você completar. Pontos a observar:</p>
+    <ul>
+      <li><strong>Trânsito em julgado</strong> — vem do movimento <em>Transitado em Julgado em…</em> dos autos e prevalece sobre a data que o JD importar. O trânsito dos embargos (ou decurso do prazo) vem sugerido como o dia seguinte; altere se for o caso.</li>
+      <li><strong>Data-base</strong> — a data do cálculo, ou a de elaboração da planilha.</li>
+      <li><strong>Honorários contratuais</strong> — marque <em>Há destaque de honorários contratuais</em> e informe o percentual: a extensão calcula o valor do advogado e o desconta do crédito do autor, componente a componente, e leva o RRA ao líquido. Por ora, o preenchimento no JD cobre <strong>um</strong> advogado.</li>
+      <li><strong>RRA sem exercícios anteriores</strong> — quando os meses dos exercícios anteriores são zero, a extensão escreve <em>NM igual zero</em> no campo <em>Motivo não Preenchimento de NM</em>, que o JD exige para gravar, e preenche o exercício corrente em seguida. O NM do exercício corrente só é aceito pelo JD com a data-base do cálculo no ano atual; a tela avisa antes, se não for o caso.</li>
+      <li><strong>RPV ou precatório</strong> — a linha <em>Tipo de requisição</em> compara o crédito, somados os honorários contratuais, com o teto de <strong>60 salários-mínimos</strong> na data-base do cálculo. Acima do teto, a tela pergunta se houve <strong>renúncia ao valor excedente</strong> na fase de execução: com renúncia, segue como RPV; sem renúncia, é precatório, e a extensão não vai ao JD — o preenchimento fica com você.</li>
+    </ul>
+    <p><strong>No JD.</strong></p>
+    <ol>
+      <li>Marque <em>Conferi todos os dados acima</em> e clique em <strong>Preencher a RPV no JD</strong>. Na primeira vez, o Chrome pede autorização para o pAIdegua acessar o endereço do JD (<code>jd.trf5.jus.br</code>).</li>
+      <li>Entre no JD com o seu usuário, a senha e o código de segurança. <strong>O login é sempre seu.</strong></li>
+      <li>A extensão abre o cadastro, digita o número do processo e deixa o JD importar os dados do PJe. Em seguida, preenche datas e valores e avança sozinha pelas telas 1 a 3, inclusive a seleção das partes.</li>
+      <li>Na <strong>tela de valores</strong>, ela preenche e <strong>para</strong>. Confira e clique em <strong>Gravar</strong>: o JD mostra o valor do requisitório e pede duas confirmações, que são suas. O ofício e o <em>Enviar para Conferência</em> também são seus.</li>
+    </ol>
+    <p>Se o número do processo na tela do JD não for o do cálculo, ou se um campo já trouxer um valor diferente do informado, a extensão <strong>para e diz o motivo</strong>, sem preencher. Um processo por vez; o botão <strong>Parar o preenchimento</strong> encerra a sessão.</p>
+    <p><strong>Planilha não reconhecida?</strong> Use <strong>Testar com um PDF do computador</strong>: o arquivo é lido no seu navegador, sem ser enviado. Depois, envie o relatório gerado ao suporte, <strong>inovajus@jfce.jus.br</strong>, pelo botão da própria tela. O relatório não tem dados das partes — <strong>não anexe o PDF</strong>.</p>
+    <p><strong>Em breve:</strong> RPV só de honorários de sucumbência e RPV de reembolso à Seção Judiciária (perícias).</p>
+    <blockquote><strong>O que fica guardado:</strong> na sua máquina, por até 30 dias, o cálculo de cada processo feito pelo pAIdegua — só número do processo, datas e valores, sem nome nem CPF —, para a RPV poder ser feita em outro dia.</blockquote>
 
     <h4 id="comunicacao">Central de Comunicação</h4>
     <p>Disponível apenas em 1º grau. Automatiza cobranças a peritos (mensagem) e ao CEAB (e-mail), com base nos processos de perícia em atraso.</p>
