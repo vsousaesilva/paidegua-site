@@ -49,6 +49,7 @@
           <li><a href="#popup-mais">3.7 Mais opções</a></li>
           <li><a href="#funcionalidades-extensao">— Escolher as funcionalidades</a></li>
           <li><a href="#popup-rodape">Rodapé</a></li>
+          <li><a href="#chamados-suporte">— Chamados de suporte</a></li>
         </ul>
       </li>
       <li><a href="#parte-4-perfis">4. Perfis de trabalho</a></li>
@@ -82,7 +83,7 @@
 
   <main class="manual-content">
     <h1>Manual de Instalação e Uso</h1>
-    <p class="manual-meta">Versão <strong>1.27.2</strong> · Atualizado em 16/11/2026 · Mantido pelo <strong>Inovajus / JFCE</strong></p>
+    <p class="manual-meta">Versão <strong>1.28.0</strong> · Atualizado em 19/11/2026 · Mantido pelo <strong>Inovajus / JFCE</strong></p>
     <p class="manual-lede">Plataforma de apoio à atividade e à gestão judicial no PJe — triagem inteligente, validação de cadastro, Central de Agrupadores, minutas com IA, Tópico Síntese automático, cálculo da execução pela Fábrica de Cálculos do TRF3 (Execução arretada), preenchimento da RPV no JD do TRF5 (Requisitório Fácil), pauta de audiência e perícia, controle criminal (Sigcrim), Central de Comunicação, Painel Gerencial, Prazos na Fita, Ordens PREVJUD, Painel de Perícias, pesquisa de jurisprudência com a Júlia, Consultor de Fluxos e chat livre sobre os autos. Operação em conformidade com a LGPD e a Resolução CNJ 615/2025.</p>
 
     <h2 id="parte-1-instalacao">PARTE 1 — Instalação</h2>
@@ -221,9 +222,37 @@
     <h3 id="popup-rodape">Rodapé do popup</h3>
     <ul>
       <li><strong>Diagnóstico</strong> — abre a página com o histórico das últimas 30 varreduras (Painel Gerencial, Prazos na Fita, Triagem Inteligente). Para cada uma: quando foi feita, em qual unidade, processos lidos / com erro, tempo total, se a sessão do PJe precisou ser renovada, blocos <strong>Probe Keycloak</strong>, <strong>Autenticação do PJe</strong> e <strong>Histórico HTTP 403</strong>. Os dados ficam apenas no seu navegador.</li>
-      <li><strong>Suporte</strong> — abre formulário para registrar dúvidas, erros ou sugestões. Ao clicar em <strong>Preparar e-mail de suporte</strong>, o cliente de e-mail abre com a mensagem pronta para <code>inovajus@jfce.jus.br</code>. A opção <strong>Incluir informações técnicas</strong> (marcada por padrão) anexa versão, navegador, sistema e endereço do PJe — sem dados do processo.</li>
+      <li><strong>Suporte</strong> — abre a página de <a href="#chamados-suporte">chamados de suporte</a>, onde você registra o problema, anexa imagens e acompanha a resposta. No pacote institucional do TRF5, o mesmo link abre um formulário que prepara um e-mail para <code>inovajus@jfce.jus.br</code>.</li>
       <li><strong>Versão</strong> e <strong>e-mail logado</strong> — versão atual e identificação do usuário autenticado, com opção de <strong>Sair</strong>.</li>
     </ul>
+
+    <h4 id="chamados-suporte">Chamados de suporte</h4>
+    <p>O link <strong>Suporte</strong> abre, em uma aba, a página <strong>Suporte do pAIdegua</strong>. É preciso estar com a sessão ativa na extensão; sem ela, a página pede que você entre pelo popup e recarregue.</p>
+    <blockquote><strong>Este suporte é exclusivo do pAIdegua.</strong> Assunto do PJe em si vai para o atendimento do PJe: portal TOT (<code>atendimentopje.trf5.jus.br</code>) ou Central de Atendimento, nos telefones (81) 3425-9241 e (81) 3425-9920.</blockquote>
+    <p><strong>Abrir um chamado.</strong> Clique em <strong>Abrir chamado</strong> e preencha:</p>
+    <ul>
+      <li><strong>Perfil</strong> e <strong>Grau</strong> — servem só para encurtar a lista de assuntos. Deixe em "Todos" para ver a lista completa.</li>
+      <li><strong>Assunto</strong> — a funcionalidade a que o chamado se refere. Há também assuntos gerais: <em>Acesso e login</em>, <em>Instalação e atualização</em>, <em>Sugestão de melhoria</em> e <em>Outro</em>.</li>
+      <li><strong>Título</strong> (até 120 caracteres) e <strong>O que aconteceu</strong> (até 5.000) — conte o que tentou fazer, em que tela estava e o que apareceu.</li>
+      <li><strong>Imagens</strong> (opcional) — até 5, em PNG, JPEG ou WebP. A página reduz a imagem antes de enviar; o limite é de 2 MB por imagem e de 20 imagens por chamado.</li>
+    </ul>
+    <p>O quadro <strong>Será enviado junto com o chamado</strong> mostra o que segue além do seu texto: versão da extensão, grau, perfil e o nome do servidor do PJe em uso. Nada dos autos é lido ou enviado.</p>
+    <p>Algumas telas — o card da Triagem Inteligente, o relatório da competência e as páginas da Execução arretada — têm um atalho que abre esta página com o assunto já escolhido.</p>
+    <blockquote><strong>Cuidado com dados das partes.</strong> Evite nome de parte, CPF e número de processo, salvo quando for indispensável para explicar o problema. Captura de tela do PJe quase sempre mostra esses dados: recorte a imagem para o trecho que interessa.</blockquote>
+    <p><strong>Acompanhar.</strong> A página lista os seus chamados, com filtro entre <strong>Em andamento</strong>, <strong>Encerrados</strong> e <strong>Todos</strong>. Abra um chamado para ler a conversa e responder, com texto e imagens. Cada chamado mostra a situação em que está:</p>
+    <table>
+      <thead><tr><th>Situação</th><th>O que significa</th></tr></thead>
+      <tbody>
+        <tr><td><strong>Aberto</strong></td><td>Recebido; ainda não começou a ser analisado.</td></tr>
+        <tr><td><strong>Em análise</strong></td><td>O atendimento está cuidando do chamado.</td></tr>
+        <tr><td><strong>Aguardando o validador</strong></td><td>O atendimento precisa de uma informação sua. Ao responder, o chamado volta a "Em análise".</td></tr>
+        <tr><td><strong>Corrigido na versão X</strong></td><td>A correção saiu na versão indicada. Atualize a extensão, confira e clique em <strong>Confirmar que foi corrigido</strong> ou em <strong>Reabrir o chamado</strong>.</td></tr>
+        <tr><td><strong>Validado</strong> / <strong>Encerrado</strong></td><td>Chamado concluído. Se o problema voltar, use <strong>Reabrir o chamado</strong>.</td></tr>
+        <tr><td><strong>Reaberto</strong></td><td>Você informou que o problema continua; o chamado voltou para o atendimento.</td></tr>
+      </tbody>
+    </table>
+    <p><strong>Avisos por e-mail.</strong> Cada resposta do atendimento e cada mudança de situação chega ao seu e-mail, do remetente <strong>pAIdegua / Inovajus</strong> (<code>noreply@paidegua.ia.br</code>), com o texto da mensagem e <strong>sem as imagens</strong>. Várias respostas seguidas geram um aviso só, até você voltar ao chamado. Não responda ao e-mail: a resposta é dada na página de chamados.</p>
+    <p><strong>Onde ficam os dados.</strong> O texto do chamado fica guardado no serviço de suporte do pAIdegua e é lido por você e pela equipe de atendimento. As imagens têm acesso restrito a você e ao atendimento e são <strong>apagadas 30 dias depois de o chamado ser encerrado</strong>. Para retirar uma imagem antes disso, peça ao atendimento no próprio chamado.</p>
 
     <h2 id="parte-4-perfis">PARTE 4 — Perfis de trabalho</h2>
     <p>O pAIdegua apresenta conjuntos diferentes de ferramentas conforme o perfil:</p>
@@ -254,6 +283,7 @@
     <h3 id="carregar-documentos">5.2 Carregar Documentos</h3>
     <p><strong>Passo obrigatório antes de qualquer ação sobre os autos.</strong> Clique em <strong>Carregar Documentos</strong> para que a extensão detecte todos os documentos da árvore de anexos, exiba a lista com checkbox para seleção individual e permita marcar/desmarcar todos.</p>
     <p>Depois clique em <strong>Extrair conteúdo selecionados</strong>. O progresso é exibido em tempo real (ex.: <em>"Extração concluída — 39 ok, 2 com erro"</em>). Arquivos de mídia (MP3, MP4 etc.) são marcados como conteúdo não-textual e não geram erro.</p>
+    <p><strong>Processos longos.</strong> O PJe mostra a cronologia aos poucos, conforme se rola a lista. Desde a versão 1.28.0, ao carregar os documentos a extensão <strong>rola a cronologia até o fim sozinha</strong> e devolve a tela ao ponto em que estava — por isso a lista pode se mexer por alguns segundos. Os documentos mais antigos, como a petição inicial, passam a entrar sem que seja preciso rolar à mão. Se ainda aparecer o aviso de lista incompleta, role a cronologia até o fim e clique em <strong>Recarregar Documentos</strong>.</p>
 
     <h3 id="ferramentas-gabinete">5.3 Ferramentas do perfil Gabinete</h3>
 
@@ -622,6 +652,13 @@
     <blockquote><em>Respondida com justificativa</em> continua contando como <strong>pendente</strong>, de propósito: o INSS respondeu, mas não implantou — a vara ainda precisa analisar o caso.</blockquote>
     <p><strong>Etiquetar em lote.</strong> A partir do painel é possível aplicar nos processos a etiqueta <strong>Prevjud - [situação]</strong> correspondente, de uma vez só, para que a situação de cada ordem fique visível no próprio PJe.</p>
     <p><strong>Exportar.</strong> O painel gera uma planilha do Excel com tudo o que está sendo exibido, para relatórios e reuniões.</p>
+    <p><strong>Finalizar ordens cumpridas no PJe.</strong> O botão <strong>Finalizar ordens cumpridas no PJe</strong> movimenta, pela saída <em>Finalizar</em>, os processos da tabela que estão na tarefa <em>[PREVJUD] Notificação recebida (ORDEM_CUMPRIDA)</em> — sem abrir a tarefa de cada um.</p>
+    <ol>
+      <li>Clique no botão. A extensão lê a tarefa e mostra a <strong>relação dos processos</strong> que serão movimentados; desmarque os que não devem ir.</li>
+      <li>Confira e clique em <strong>Movimentar</strong>. Nada é movimentado antes desse clique, e a movimentação não se desfaz pelo painel.</li>
+      <li>Os processos vão um de cada vez, até <strong>200 por execução</strong>; para mais, repita a operação. Ao final, o painel diz, processo a processo, o que foi movimentado, o que foi pulado e por quê.</li>
+    </ol>
+    <blockquote>A extensão só conta como movimentado o processo que de fato saiu da tarefa. Se o PJe ficar lento ou a sessão cair, a execução para e informa a causa; os restantes ficam como "não tentados".</blockquote>
 
     <h4 id="painel-pericias-gestao">Painel de Perícias pAIdegua</h4>
     <p>Disponível em 1º grau. Traz o relatório de perícias do PJe já filtrado pela sua unidade, para a gestão enxergar a pauta inteira: quantas perícias há, em que situação estão, quais laudos faltam e quanto está empenhado em honorários.</p>
@@ -654,15 +691,12 @@
     </ul>
 
     <h3 id="consultor-fluxos">5.7 Seção Conhecimento — Consultor de Fluxos</h3>
-    <p>Disponível em qualquer perfil. Botão <strong>Consultor de fluxos</strong> na seção <strong>Conhecimento</strong> do painel lateral, com o subtítulo <em>Como o processo caminha no PJe</em>. Abre uma nova aba com chat dedicado sobre os 210 fluxos do PJe (JEF, EF, Comum, Shared).</p>
+    <p>Disponível em qualquer perfil. Botão <strong>Consultor de fluxos</strong> na seção <strong>Conhecimento</strong> do painel lateral, com o subtítulo <em>Como o processo caminha no PJe</em>. Abre uma nova aba com chat dedicado sobre os fluxos do PJe.</p>
+    <p><strong>Cada grau vê os seus fluxos.</strong> O Consultor abre com o catálogo do grau do PJe em que você está, indicado no canto superior da tela: no <strong>1º grau</strong>, os 225 fluxos das varas (JEF, Execução Fiscal, Cível e Criminal); no <strong>2º grau (TRF5)</strong>, os 171 fluxos do tribunal. Na <strong>Turma Recursal</strong> o catálogo ainda não está disponível, e a tela avisa. Os botões dos Mapas de Jornada aparecem só no 1º grau.</p>
     <p>Usos típicos: <em>"Como funciona o JEF previdenciário?"</em>, <em>"Explique o fluxo OPPER da Vara de Execução"</em>, <em>"O que acontece após a tarefa de conclusão para sentença?"</em>.</p>
     <p>A interface tem três áreas: ações rápidas predefinidas + busca textual no catálogo · chat com a IA · diagrama Mermaid do fluxo conversado (renderizado sob demanda).</p>
-    <p>Há dois modos:</p>
-    <ul>
-      <li><strong>Para usuário</strong> — linguagem natural, sem códigos, foco no que o operador vê na tela.</li>
-      <li><strong>Para desenvolvedor</strong> — linguagem técnica, códigos jBPM, swimlanes coloridas.</li>
-    </ul>
-    <p>A troca de modo reinicia a conversa atual. Tudo opera dentro do navegador — não há envio de dados de processo concretos para fora.</p>
+    <p>As respostas vêm em <strong>linguagem natural</strong>, sem códigos, com foco no que o operador vê na tela. Existe ainda um modo técnico (códigos dos fluxos e detalhes de implementação), exibido apenas aos administradores da extensão.</p>
+    <p>O botão <strong>Limpar</strong> reinicia a conversa. Tudo opera dentro do navegador — não há envio de dados de processo concretos para fora.</p>
 
     <h3 id="icones-linha">5.8 Painéis comuns — ícones por linha</h3>
     <p>Em todas as listas de processo dos painéis (Triagem Inteligente, Validação de cadastro, Painel Gerencial, Prazos na Fita, Ordens PREVJUD, Painel de Perícias, Audiência, Perícias) há três ícones ao lado de cada número de processo:</p>
@@ -682,6 +716,7 @@
       <li><em>Há questões preliminares a resolver?</em></li>
       <li><em>Liste todos os prazos mencionados.</em></li>
     </ul>
+    <p><strong>Limpar o feed.</strong> Cada ação do painel lateral acrescenta o seu resultado abaixo do anterior. Quando a tela ficar carregada, use o botão <strong>Limpar o feed</strong>, no canto superior do feed: ele apaga as ocorrências exibidas e recomeça a conversa do zero. Nada é desfeito no PJe; uma operação em andamento continua até o fim, mas o resultado dela não aparecerá mais ali.</p>
     <p>O chat também suporta entrada por voz pelo botão do microfone. Se o provedor selecionado tem API de transcrição (OpenAI Whisper, Gemini), o áudio é enviado para transcrição remota; caso contrário, a extensão cai para o <strong>Web Speech API local</strong> do navegador. Com Anthropic, a transcrição via API não está disponível — use o Web Speech ou selecione OpenAI / Gemini.</p>
 
     <h3 id="acoes-minuta">5.10 Ações disponíveis em cada resposta / minuta</h3>
@@ -728,9 +763,11 @@
 
     <p><strong>Um botão sumiu do painel lateral (ou uma aba sumiu do popup).</strong> Antes de supor defeito, verifique três coisas, nesta ordem. Primeiro, o <strong>perfil de trabalho</strong> no cabeçalho do painel: cada perfil mostra um conjunto diferente de ferramentas (ver Parte 4). Segundo, a seção <strong>Funcionalidades da extensão</strong>, em <strong>Mais opções</strong> — se o módulo estiver desmarcado ali, o botão e a configuração dele ficam ocultos de propósito; basta marcar de novo. Vale lembrar que algumas funcionalidades novas chegam <em>desligadas de fábrica</em> — nunca estiveram visíveis, e a lista explica por quê. Terceiro, algumas ferramentas só aparecem em contexto: as de Gestão exigem o <strong>Painel do usuário</strong> aberto, e as que leem os autos exigem um <strong>processo aberto</strong>.</p>
 
-    <p><strong>Não consigo fazer login (e-mail não autorizado).</strong> A liberação é feita pelo Inovajus para os membros do grupo piloto. Solicite via formulário <strong>Suporte</strong> (rodapé do popup) informando seu e-mail institucional, vara/unidade e papel.</p>
+    <p><strong>Não consigo fazer login (e-mail não autorizado).</strong> A liberação é feita pelo Inovajus para os membros do grupo piloto. Solicite por e-mail a <a href="mailto:inovajus@jfce.jus.br">inovajus@jfce.jus.br</a>, informando seu e-mail institucional, vara/unidade e papel — a página de chamados exige login e não serve para este caso.</p>
 
-    <p><strong>Não recebo o código de 6 dígitos.</strong> Verifique a caixa de spam / lixo eletrônico. O código vem do remetente <strong>pAIdegua / Inovajus</strong> (<code>noreply@paidegua.ia.br</code>) e é válido por 10 minutos. Se persistir, solicite reenvio pelo Suporte.</p>
+    <p><strong>Não recebo o código de 6 dígitos.</strong> Verifique a caixa de spam / lixo eletrônico. O código vem do remetente <strong>pAIdegua / Inovajus</strong> (<code>noreply@paidegua.ia.br</code>) e é válido por 10 minutos. Se persistir, escreva para <a href="mailto:inovajus@jfce.jus.br">inovajus@jfce.jus.br</a>.</p>
+
+    <p><strong>Não recebo os avisos dos chamados de suporte.</strong> Verifique a caixa de spam / lixo eletrônico: o remetente é o mesmo do código de acesso. O aviso não se repete enquanto você não voltar ao chamado, e o que importa está sempre na página de <a href="#chamados-suporte">chamados</a>, com ou sem e-mail.</p>
 
     <p><strong>Aparece o aviso "Limite do PJe: 3 consultas por vez".</strong> Não é erro. Para não sobrecarregar o PJe, a extensão faz no máximo três consultas ao PJe ao mesmo tempo, somando todas as funções abertas. Em varreduras grandes (Triagem em lote, Prazos na Fita, painéis), o trabalho entra em fila e continua, só mais devagar; o aviso aparece por alguns segundos e volta, no máximo, a cada dois minutos enquanto houver fila.</p>
 
@@ -780,7 +817,7 @@
 
     <hr>
 
-    <p style="text-align:center;color:var(--muted);font-size:14px"><strong>Dúvidas?</strong> Use o link <strong>Suporte</strong> no rodapé do popup ou envie e-mail para <a href="mailto:inovajus@jfce.jus.br">inovajus@jfce.jus.br</a>.</p>
+    <p style="text-align:center;color:var(--muted);font-size:14px"><strong>Dúvidas?</strong> Abra um chamado pelo link <strong>Suporte</strong> no rodapé do popup ou, se não conseguir entrar, envie e-mail para <a href="mailto:inovajus@jfce.jus.br">inovajus@jfce.jus.br</a>.</p>
   </main>
 </div>
 
