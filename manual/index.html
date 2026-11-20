@@ -83,7 +83,7 @@
 
   <main class="manual-content">
     <h1>Manual de Instalação e Uso</h1>
-    <p class="manual-meta">Versão <strong>1.28.1</strong> · Atualizado em 19/11/2026 · Mantido pelo <strong>Inovajus / JFCE</strong></p>
+    <p class="manual-meta">Versão <strong>1.29.0</strong> · Atualizado em 20/11/2026 · Mantido pelo <strong>Inovajus / JFCE</strong></p>
     <p class="manual-lede">Plataforma de apoio à atividade e à gestão judicial no PJe — triagem inteligente, validação de cadastro, Central de Agrupadores, minutas com IA, Tópico Síntese automático, cálculo da execução pela Fábrica de Cálculos do TRF3 (Execução arretada), preenchimento da RPV no JD do TRF5 (Requisitório Fácil), pauta de audiência e perícia, controle criminal (Sigcrim), Central de Comunicação, Painel Gerencial, Prazos na Fita, Ordens PREVJUD, Painel de Perícias, pesquisa de jurisprudência com a Júlia, Consultor de Fluxos e chat livre sobre os autos. Operação em conformidade com a LGPD e a Resolução CNJ 615/2025.</p>
 
     <h2 id="parte-1-instalacao">PARTE 1 — Instalação</h2>
@@ -234,12 +234,13 @@
       <li><strong>Perfil</strong> e <strong>Grau</strong> — servem só para encurtar a lista de assuntos. Deixe em "Todos" para ver a lista completa.</li>
       <li><strong>Assunto</strong> — a funcionalidade a que o chamado se refere. Há também assuntos gerais: <em>Acesso e login</em>, <em>Instalação e atualização</em>, <em>Sugestão de melhoria</em> e <em>Outro</em>.</li>
       <li><strong>Título</strong> (até 120 caracteres) e <strong>O que aconteceu</strong> (até 5.000) — conte o que tentou fazer, em que tela estava e o que apareceu.</li>
-      <li><strong>Imagens</strong> (opcional) — até 5, em PNG, JPEG ou WebP. A página reduz a imagem antes de enviar; o limite é de 2 MB por imagem e de 20 imagens por chamado.</li>
+      <li><strong>Processo</strong> (opcional) — o número do processo em que o problema ocorreu, para o atendimento poder examinar o caso.</li>
+      <li><strong>Anexos</strong> (opcional) — até 5 na abertura e 20 por chamado. Imagens em PNG, JPEG ou WebP, até 2 MB cada; a página reduz a imagem antes de enviar. Documentos em PDF ou Word (<code>.docx</code>), até 5 MB cada. O documento não é aberto na página: quem o consulta faz o download.</li>
     </ul>
     <p>O quadro <strong>Será enviado junto com o chamado</strong> mostra o que segue além do seu texto: versão da extensão, grau, perfil e o nome do servidor do PJe em uso. Nada dos autos é lido ou enviado.</p>
     <p>Algumas telas — o card da Triagem Inteligente, o relatório da competência e as páginas da Execução arretada — têm um atalho que abre esta página com o assunto já escolhido.</p>
     <blockquote><strong>Cuidado com dados das partes.</strong> Evite nome de parte, CPF e número de processo, salvo quando for indispensável para explicar o problema. Captura de tela do PJe quase sempre mostra esses dados: recorte a imagem para o trecho que interessa.</blockquote>
-    <p><strong>Acompanhar.</strong> A página lista os seus chamados, com filtro entre <strong>Em andamento</strong>, <strong>Encerrados</strong> e <strong>Todos</strong>. Abra um chamado para ler a conversa e responder, com texto e imagens. Cada chamado mostra a situação em que está:</p>
+    <p><strong>Acompanhar.</strong> A página lista os seus chamados, com filtro entre <strong>Em andamento</strong>, <strong>Encerrados</strong> e <strong>Todos</strong>. Abra um chamado para ler a conversa e responder, com texto e anexos. Cada chamado mostra a situação em que está:</p>
     <table>
       <thead><tr><th>Situação</th><th>O que significa</th></tr></thead>
       <tbody>
@@ -251,8 +252,8 @@
         <tr><td><strong>Reaberto</strong></td><td>Você informou que o problema continua; o chamado voltou para o atendimento.</td></tr>
       </tbody>
     </table>
-    <p><strong>Avisos por e-mail.</strong> Cada resposta do atendimento e cada mudança de situação chega ao seu e-mail, do remetente <strong>pAIdegua / Inovajus</strong> (<code>noreply@paidegua.ia.br</code>), com o texto da mensagem e <strong>sem as imagens</strong>. Várias respostas seguidas geram um aviso só, até você voltar ao chamado. Não responda ao e-mail: a resposta é dada na página de chamados.</p>
-    <p><strong>Onde ficam os dados.</strong> O texto do chamado fica guardado no serviço de suporte do pAIdegua e é lido por você e pela equipe de atendimento. As imagens têm acesso restrito a você e ao atendimento e são <strong>apagadas 30 dias depois de o chamado ser encerrado</strong>. Para retirar uma imagem antes disso, peça ao atendimento no próprio chamado.</p>
+    <p><strong>Avisos por e-mail.</strong> Cada resposta do atendimento e cada mudança de situação chega ao seu e-mail, do remetente <strong>pAIdegua / Inovajus</strong> (<code>noreply@paidegua.ia.br</code>), com o texto da mensagem e <strong>sem os anexos</strong>. Várias respostas seguidas geram um aviso só, até você voltar ao chamado. Não responda ao e-mail: a resposta é dada na página de chamados.</p>
+    <p><strong>Onde ficam os dados.</strong> O texto do chamado fica guardado no serviço de suporte do pAIdegua e é lido por você e pela equipe de atendimento. As imagens e os documentos anexados têm acesso restrito a você e ao atendimento e são <strong>apagados 30 dias depois de o chamado ser encerrado</strong>. Para retirar um anexo antes disso, peça ao atendimento no próprio chamado.</p>
 
     <h2 id="parte-4-perfis">PARTE 4 — Perfis de trabalho</h2>
     <p>O pAIdegua apresenta conjuntos diferentes de ferramentas conforme o perfil:</p>
@@ -392,7 +393,7 @@
     <ul>
       <li><strong>Competência</strong> — quais processos entram, pela competência que consta no campo <em>Competência</em> do PJe: <strong>JEF</strong>, <strong>Cível</strong>, <strong>Criminal</strong> e <strong>Execução Fiscal</strong>. Na primeira vez as quatro vêm marcadas; desmarque as que não quiser. O processo cuja competência não consta do campo continua dentro do recorte. Em cada processo, valem os critérios <strong>Geral</strong> e os da competência dele.</li>
       <li><strong>Tarefas</strong> — quais tarefas de triagem incluir.</li>
-      <li><strong>Filtros</strong> — período de chegada na tarefa e/ou quantidade máxima por tarefa. O período inclui os <strong>dois</strong> dias escolhidos: marcar de 1º a 30 de setembro traz também os processos que chegaram no dia 30, e escolher o mesmo dia nas duas pontas traz os daquele dia.</li>
+      <li><strong>Filtros</strong> — período de chegada na tarefa e/ou quantidade máxima por tarefa. O período inclui os <strong>dois</strong> dias escolhidos: marcar de 1º a 30 de setembro traz também os processos que chegaram no dia 30, e escolher o mesmo dia nas duas pontas traz os daquele dia. Quando os dois filtros são usados juntos, o período vale primeiro: a quantidade máxima é contada entre os processos que chegaram no período, e não entre os primeiros da tarefa.</li>
     </ul>
     <p>A tela mostra também quantos critérios estão marcados para a análise. Se nenhum estiver, o cartão <strong>Nenhum critério selecionado</strong> avisa, e <strong>Iniciar</strong> pergunta se você quer seguir mesmo assim. Se o PJe trouxer algum processo de competência que você deixou de fora, ele aparece no painel como <em>Fora do recorte de competência</em>, sem análise.</p>
 
