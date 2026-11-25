@@ -1,0 +1,47 @@
+/*
+ * Suporte do pAIdegua no site — o que a página do site tem a mais que a da
+ * extensão: a faixa de navegação e o formulário de entrada. O restante vem de
+ * chamados.css, o mesmo arquivo da extensão.
+ */
+
+.sw-nav {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  flex-wrap: wrap;
+  padding: 10px 28px;
+  background: var(--primary-dark);
+  color: #FFFFFF;
+  font-size: 13px;
+}
+
+.sw-nav a { color: #FFFFFF; text-decoration: none; }
+.sw-nav a:hover, .sw-nav a:focus-visible { text-decoration: underline; }
+
+.sw-nav__marca {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  font-weight: 600;
+}
+
+.sw-nav__marca img { border-radius: 6px; background: #FFFFFF; }
+.sw-nav__links { display: inline-flex; gap: 18px; }
+
+.ch-header__acoes { align-items: center; }
+
+.sw-entrada { max-width: 520px; }
+.sw-entrada p { margin: 0 0 14px; line-height: 1.5; }
+.sw-entrada .ch-form { margin-bottom: 4px; }
+
+.sw-codigo {
+  max-width: 180px;
+  font-size: 20px;
+  letter-spacing: 6px;
+  font-variant-numeric: tabular-nums;
+}
+
+@media (max-width: 560px) {
+  .sw-nav, .ch-header, .ch-main { padding-left: 16px; padding-right: 16px; }
+}

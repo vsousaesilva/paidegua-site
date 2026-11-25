@@ -1,0 +1,256 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <!-- Página com sessão: não é para aparecer em busca. -->
+    <meta name="robots" content="noindex" />
+    <title>Suporte — pAIdegua · Inovajus / JFCE</title>
+    <link rel="icon" href="../assets/logo.png" />
+    <!--
+      FONTE: src/suporte-web/index.html. O que está em docs/site/suporte/ é
+      gerado por `npm run build:site` — não editar lá.
+      Ao mudar CSS ou script, incremente o ?v= abaixo.
+    -->
+    <link rel="stylesheet" href="chamados.css?v=1" />
+    <link rel="stylesheet" href="suporte-web.css?v=1" />
+  </head>
+  <body>
+    <nav class="sw-nav" aria-label="Site do pAIdegua">
+      <a class="sw-nav__marca" href="../">
+        <img src="../assets/logo.png" alt="" width="24" height="24" />
+        <span>pAIdegua</span>
+      </a>
+      <span class="sw-nav__links">
+        <a href="../">Início</a>
+        <a href="../manual/">Manual</a>
+        <a href="../privacidade/">Privacidade</a>
+      </span>
+    </nav>
+
+    <header class="ch-header">
+      <div>
+        <h1>Suporte do pAIdegua</h1>
+        <p class="ch-subtitle" id="ch-usuario">Chamados de suporte</p>
+      </div>
+      <div class="ch-header__acoes">
+        <span class="ch-header__acoes" id="ch-acoes-topo" hidden>
+          <button type="button" class="ch-btn" id="ch-atualizar">Atualizar</button>
+          <button type="button" class="ch-btn ch-btn--primary" id="ch-novo">Abrir chamado</button>
+        </span>
+        <button type="button" class="ch-btn" id="sw-sair" hidden>Sair</button>
+      </div>
+    </header>
+
+    <main class="ch-main">
+      <aside class="ch-escopo" role="note" aria-label="Escopo deste suporte">
+        <p class="ch-escopo__titulo">Este suporte é exclusivo do pAIdegua.</p>
+        <p>
+          Qualquer outro assunto relacionado ao PJe deve ser encaminhado ao
+          atendimento do PJe, e não por aqui:
+        </p>
+        <ul>
+          <li>
+            pelo portal TOT:
+            <a href="https://atendimentopje.trf5.jus.br" target="_blank" rel="noopener noreferrer">https://atendimentopje.trf5.jus.br</a>;
+          </li>
+          <li>
+            pela Central de Atendimento, de segunda a sexta-feira, nos telefones do
+            Suporte PJe: <strong>(81) 3425-9241</strong> ou <strong>(81) 3425-9920</strong>.
+          </li>
+        </ul>
+      </aside>
+
+      <p class="ch-aviso" id="ch-aviso" role="status" aria-live="polite" hidden></p>
+
+      <!-- Sem sessão: a entrada por código enviado ao e-mail. -->
+      <section class="ch-card sw-entrada" id="ch-sem-sessao" hidden>
+        <h2>Entrar</h2>
+        <p>
+          Para abrir e acompanhar chamados, informe o seu e-mail institucional
+          da Justiça Federal da 5ª Região. Enviaremos um código de seis números
+          para ele. Não é preciso ter a extensão instalada.
+        </p>
+
+        <form id="sw-form-email" class="ch-form" novalidate>
+          <div class="ch-campo">
+            <label class="ch-label" for="sw-email">E-mail institucional</label>
+            <input type="email" id="sw-email" class="ch-input" autocomplete="email"
+              inputmode="email" placeholder="nome@jfce.jus.br" required />
+          </div>
+          <div class="ch-acoes">
+            <button type="submit" class="ch-btn ch-btn--primary" id="sw-enviar-email">Enviar código</button>
+          </div>
+        </form>
+
+        <form id="sw-form-codigo" class="ch-form" novalidate hidden>
+          <p>
+            Enviamos um código para <strong id="sw-email-usado"></strong>. Ele
+            vale por 10 minutos. Se não chegar, confira a caixa de spam.
+          </p>
+          <div class="ch-campo">
+            <label class="ch-label" for="sw-codigo">Código de seis números</label>
+            <input type="text" id="sw-codigo" class="ch-input sw-codigo" autocomplete="one-time-code"
+              inputmode="numeric" maxlength="6" required />
+          </div>
+          <div class="ch-acoes">
+            <button type="button" class="ch-btn" id="sw-trocar-email">Usar outro e-mail</button>
+            <button type="submit" class="ch-btn ch-btn--primary" id="sw-enviar-codigo">Entrar</button>
+          </div>
+        </form>
+
+        <p class="ch-erro" id="sw-erro" role="alert" hidden></p>
+
+        <p class="ch-declaracao">
+          O seu e-mail é usado para identificar os seus chamados e para avisar
+          das respostas. A entrada vale por 12 horas e termina quando você
+          fecha esta aba ou clica em "Sair". Em computador de uso
+          compartilhado, saia ao terminar.
+        </p>
+      </section>
+
+      <!-- 1. Meus chamados -->
+      <section id="ch-visao-lista" hidden>
+        <div class="ch-filtros" role="radiogroup" aria-label="Filtrar chamados">
+          <label><input type="radio" name="ch-filtro" value="andamento" /> Em andamento</label>
+          <label><input type="radio" name="ch-filtro" value="encerrados" /> Encerrados</label>
+          <label><input type="radio" name="ch-filtro" value="todos" checked /> Todos</label>
+        </div>
+        <div id="ch-lista" class="ch-lista"></div>
+        <p class="ch-vazio" id="ch-lista-vazia" hidden></p>
+      </section>
+
+      <!-- 2. Abrir chamado -->
+      <section id="ch-visao-form" hidden>
+        <form id="ch-form" class="ch-card ch-form" novalidate>
+          <h2>Abrir chamado</h2>
+
+          <div class="ch-linha">
+            <div class="ch-campo">
+              <label class="ch-label" for="ch-perfil">Perfil</label>
+              <select id="ch-perfil" class="ch-input"></select>
+            </div>
+            <div class="ch-campo">
+              <label class="ch-label" for="ch-grau">Grau</label>
+              <select id="ch-grau" class="ch-input"></select>
+            </div>
+          </div>
+          <p class="ch-dica">
+            Perfil e grau servem para mostrar só as funcionalidades da sua área.
+            Deixe em "Todos" para ver a lista completa.
+          </p>
+
+          <div class="ch-campo">
+            <label class="ch-label" for="ch-assunto">Assunto</label>
+            <select id="ch-assunto" class="ch-input" required></select>
+          </div>
+
+          <div class="ch-campo">
+            <label class="ch-label" for="ch-titulo">
+              Título <span class="ch-contador" id="ch-titulo-contador"></span>
+            </label>
+            <input type="text" id="ch-titulo" class="ch-input" autocomplete="off"
+              placeholder="Ex.: O botão Redistribuir não aparece no relatório" required />
+          </div>
+
+          <div class="ch-campo">
+            <label class="ch-label" for="ch-processo">Processo (opcional)</label>
+            <p class="ch-dica">
+              Número do processo em que o problema ocorreu, para o atendimento
+              poder examinar o caso.
+            </p>
+            <input type="text" id="ch-processo" class="ch-input" autocomplete="off"
+              maxlength="120" placeholder="Ex.: 0000000-00.2026.4.05.0000" />
+          </div>
+
+          <div class="ch-campo">
+            <label class="ch-label" for="ch-descricao">
+              O que aconteceu <span class="ch-contador" id="ch-descricao-contador"></span>
+            </label>
+            <p class="ch-dica">
+              Conte o que você tentou fazer, em que tela estava e o que apareceu.
+            </p>
+            <textarea id="ch-descricao" class="ch-input ch-textarea" rows="8" required></textarea>
+          </div>
+
+          <div class="ch-campo">
+            <span class="ch-label">Anexos (opcional)</span>
+            <div id="ch-form-imagens"></div>
+          </div>
+
+          <div class="ch-contexto">
+            <p class="ch-contexto__titulo">Será enviado junto com o chamado</p>
+            <p class="ch-contexto__texto" id="ch-contexto"></p>
+          </div>
+
+          <p class="ch-declaracao">
+            O que você escrever fica guardado no serviço de suporte do pAIdegua
+            e é lido por você e
+            pela equipe de atendimento. Evite nome de parte e CPF, salvo quando
+            for indispensável para explicar o problema; o número do processo,
+            quando necessário, vai no campo "Processo". As imagens e os
+            documentos anexados ficam guardados com acesso restrito a você e ao
+            atendimento e são apagados 30 dias depois de o chamado ser encerrado.
+            Cada resposta e cada mudança de situação é avisada por e-mail, a
+            você e ao atendimento, com o texto da mensagem e sem os anexos nem
+            o campo "Processo".
+          </p>
+
+          <div class="ch-acoes">
+            <button type="button" class="ch-btn" id="ch-form-cancelar">Cancelar</button>
+            <button type="submit" class="ch-btn ch-btn--primary" id="ch-form-enviar">Enviar chamado</button>
+          </div>
+          <p class="ch-erro" id="ch-form-erro" role="alert" hidden></p>
+        </form>
+      </section>
+
+      <!-- 3. O chamado -->
+      <section id="ch-visao-chamado" hidden>
+        <button type="button" class="ch-link" id="ch-voltar">← Meus chamados</button>
+        <article class="ch-card">
+          <div class="ch-chamado__topo">
+            <span class="ch-id" id="ch-c-id"></span>
+            <span class="ch-selo" id="ch-c-situacao"></span>
+          </div>
+          <h2 id="ch-c-titulo"></h2>
+          <p class="ch-chamado__assunto" id="ch-c-assunto"></p>
+          <p class="ch-chamado__assunto" id="ch-c-processo" hidden></p>
+          <p class="ch-texto" id="ch-c-descricao"></p>
+          <div id="ch-c-anexos"></div>
+          <p class="ch-contexto__texto" id="ch-c-contexto"></p>
+
+          <h3>Conversa</h3>
+          <div id="ch-c-conversa" class="ch-conversa"></div>
+
+          <div class="ch-acoes ch-acoes--situacao" id="ch-c-acoes-situacao" hidden>
+            <p class="ch-dica" id="ch-c-dica-situacao"></p>
+            <button type="button" class="ch-btn ch-btn--primary" id="ch-c-validar" hidden>
+              Confirmar que foi corrigido
+            </button>
+            <button type="button" class="ch-btn" id="ch-c-reabrir" hidden>Reabrir o chamado</button>
+          </div>
+
+          <form id="ch-c-form" class="ch-resposta" novalidate hidden>
+            <label class="ch-label" for="ch-c-texto">
+              Sua resposta <span class="ch-contador" id="ch-c-texto-contador"></span>
+            </label>
+            <textarea id="ch-c-texto" class="ch-input ch-textarea" rows="4"></textarea>
+            <div id="ch-c-imagens"></div>
+            <div class="ch-acoes">
+              <button type="submit" class="ch-btn ch-btn--primary" id="ch-c-enviar">Responder</button>
+            </div>
+          </form>
+          <p class="ch-erro" id="ch-c-erro" role="alert" hidden></p>
+        </article>
+      </section>
+    </main>
+
+    <!-- Imagem ampliada. -->
+    <dialog class="ch-ampliada" id="ch-ampliada" aria-label="Imagem ampliada">
+      <img id="ch-ampliada-img" alt="Imagem do chamado, ampliada" />
+      <button type="button" class="ch-btn" id="ch-ampliada-fechar">Fechar</button>
+    </dialog>
+
+    <script src="suporte.js?v=1"></script>
+  </body>
+</html>

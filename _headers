@@ -6,6 +6,19 @@
   Strict-Transport-Security: max-age=31536000; includeSubDomains
   Content-Security-Policy: default-src 'self'; img-src 'self' data:; style-src 'self' 'unsafe-inline'; script-src 'self'; frame-ancestors 'none'; base-uri 'self'; form-action 'none'
 
+/suporte/*
+  # Página de chamados de suporte: é a única do site que fala com um serviço
+  # (o Worker da autenticação e dos chamados, em kanban.paidegua.ia.br). Por
+  # isso tem CSP própria, igual à do resto do site mais o `connect-src`. O
+  # `! ` remove a CSP herdada da regra geral; sem ele o navegador aplicaria as
+  # duas e a mais restrita barraria a conexão.
+  ! Content-Security-Policy
+  Content-Security-Policy: default-src 'self'; connect-src 'self' https://kanban.paidegua.ia.br; img-src 'self' data:; style-src 'self' 'unsafe-inline'; script-src 'self'; frame-ancestors 'none'; base-uri 'self'; form-action 'none'
+  # Sessão e conteúdo de chamado: nada de cache intermediário, e os arquivos
+  # (nome fixo) são conferidos a cada visita.
+  Cache-Control: no-cache
+  X-Robots-Tag: noindex
+
 /assets/*
   # Os assets têm nome fixo (site.css, manual.js) — sem hash de conteúdo.
   # Um max-age longo faria o navegador segurar versão antiga por dias após um
